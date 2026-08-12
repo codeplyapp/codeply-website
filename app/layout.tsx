@@ -1,0 +1,34 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+export const metadata: Metadata = {
+  title: "Codeply — Source Code untuk Pemula",
+  description:
+    "Vibe coder yang menjual source code simple berkualitas untuk pemula. Template HTML, CSS, JavaScript, React, dan PHP siap pakai.",
+  keywords: ["source code", "template html", "belajar coding", "pemula coding", "jual source code"],
+  authors: [{ name: "Codeply" }],
+  openGraph: {
+    title: "Codeply — Source Code untuk Pemula",
+    description: "Source code simple berkualitas untuk pemula. Beli, pelajari, dan kembangkan!",
+    type: "website",
+    locale: "id_ID",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="id">
+      <body className="antialiased">
+        <Navbar />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

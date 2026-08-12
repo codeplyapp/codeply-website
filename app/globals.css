@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* ── Custom Color Tokens ── */
+:root {
+  /* Bone — Warm Neutral */
+  --color-bone-50: #f6f4ef;
+  --color-bone-100: #eceadf;
+  --color-bone-200: #dad4be;
+  --color-bone-300: #c7bf9e;
+  --color-bone-400: #b5aa7d;
+  --color-bone-500: #a2945d;
+  --color-bone-600: #82774a;
+  --color-bone-700: #615938;
+  --color-bone-800: #413b25;
+  --color-bone-900: #201e13;
+  --color-bone-950: #17150d;
+
+  /* Celadon — Primary Green */
+  --color-celadon-50: #eff6f0;
+  --color-celadon-100: #dfece1;
+  --color-celadon-200: #bfd9c2;
+  --color-celadon-300: #9fc6a4;
+  --color-celadon-400: #7eb486;
+  --color-celadon-500: #5ea167;
+  --color-celadon-600: #4b8153;
+  --color-celadon-700: #39603e;
+  --color-celadon-800: #264029;
+  --color-celadon-900: #132015;
+  --color-celadon-950: #0d160e;
+
+  /* Muted Teal — Accent */
+  --color-muted-teal-50: #eff5f4;
+  --color-muted-teal-100: #e0ebe9;
+  --color-muted-teal-200: #c0d8d3;
+  --color-muted-teal-300: #a1c4bd;
+  --color-muted-teal-400: #82b0a7;
+  --color-muted-teal-500: #629d91;
+  --color-muted-teal-600: #4f7d74;
+  --color-muted-teal-700: #3b5e57;
+  --color-muted-teal-800: #273f3a;
+  --color-muted-teal-900: #141f1d;
+  --color-muted-teal-950: #0e1614;
+
+  /* Semantic Tokens */
+  --bg-primary: var(--color-bone-50);
+  --bg-surface: var(--color-bone-100);
+  --bg-muted: var(--color-bone-200);
+  --text-primary: var(--color-bone-900);
+  --text-secondary: var(--color-bone-700);
+  --text-muted: var(--color-bone-500);
+  --border-color: var(--color-bone-200);
+  --brand-primary: var(--color-celadon-500);
+  --brand-primary-hover: var(--color-celadon-600);
+  --brand-accent: var(--color-muted-teal-500);
+  --brand-accent-hover: var(--color-muted-teal-600);
+}
+
+/* Dark mode override */
+[data-theme="dark"] {
+  --bg-primary: var(--color-bone-950);
+  --bg-surface: var(--color-bone-900);
+  --bg-muted: var(--color-bone-800);
+  --text-primary: var(--color-bone-50);
+  --text-secondary: var(--color-bone-200);
+  --text-muted: var(--color-bone-400);
+  --border-color: var(--color-bone-800);
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: "Outfit", sans-serif;
+  --font-mono: var(--font-geist-mono);
+
+  /* Expose brand colors to Tailwind */
+  --color-bone-50: #f6f4ef;
+  --color-bone-100: #eceadf;
+  --color-bone-200: #dad4be;
+  --color-bone-300: #c7bf9e;
+  --color-bone-400: #b5aa7d;
+  --color-bone-500: #a2945d;
+  --color-bone-600: #82774a;
+  --color-bone-700: #615938;
+  --color-bone-800: #413b25;
+  --color-bone-900: #201e13;
+  --color-bone-950: #17150d;
+
+  --color-celadon-50: #eff6f0;
+  --color-celadon-100: #dfece1;
+  --color-celadon-200: #bfd9c2;
+  --color-celadon-300: #9fc6a4;
+  --color-celadon-400: #7eb486;
+  --color-celadon-500: #5ea167;
+  --color-celadon-600: #4b8153;
+  --color-celadon-700: #39603e;
+  --color-celadon-800: #264029;
+  --color-celadon-900: #132015;
+  --color-celadon-950: #0d160e;
+
+  --color-teal-50: #eff5f4;
+  --color-teal-100: #e0ebe9;
+  --color-teal-200: #c0d8d3;
+  --color-teal-300: #a1c4bd;
+  --color-teal-400: #82b0a7;
+  --color-teal-500: #629d91;
+  --color-teal-600: #4f7d74;
+  --color-teal-700: #3b5e57;
+  --color-teal-800: #273f3a;
+  --color-teal-900: #141f1d;
+  --color-teal-950: #0e1614;
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Outfit", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-celadon-500), var(--color-teal-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(246, 244, 239, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-bone-200);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(23, 21, 13, 0.7);
+  border: 1px solid var(--color-bone-800);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bone-300);
+  border-radius: 3px;
+}
