@@ -54,6 +54,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   src={product.thumbnail}
                   alt={product.title}
                   fill
+                  unoptimized
                   className="object-cover"
                   priority
                 />
