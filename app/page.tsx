@@ -1,4 +1,4 @@
-import Hero from "@/components/sections/Hero";
+import Hero from "@/components/ui/grain-gradient-hero-section";
 import FeaturedProductsSection from "@/components/sections/FeaturedProducts";
 import WhyUs from "@/components/sections/WhyUs";
 import CTASection from "@/components/sections/CTASection";
@@ -11,7 +11,11 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
+      <Hero
+        title="Siap Pakai, Pelajari, & Kembangkan Projekmu"
+        subtitle="Kumpulan source code berkualitas tinggi yang dirancang simpel dan rapi untuk pemula & vibe coder."
+        ctaLabel="Eksplor Etalase"
+      />
       <FeaturedProductsSection products={featuredProducts} />
       <WhyUs />
       <CTASection />
