@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Package } from "lucide-react";
 import type { Product } from "@/types/product";
 import ProductCard from "@/components/ui/ProductCard";
 
@@ -9,58 +9,7 @@ interface FeaturedProductsSectionProps {
   products: Product[];
 }
 
-// Fallback products when Notion database hasn't been populated yet
-const fallbackFeaturedProducts: Product[] = [
-  {
-    id: "demo-1",
-    slug: "landing-page-html-css",
-    title: "Landing Page Personal HTML & CSS",
-    description:
-      "Template landing page responsif, bersih, dan modern. Sangat mudah disesuaikan untuk portofolio atau etalase produk digital.",
-    price: 25000,
-    originalPrice: 45000,
-    techStack: ["HTML5", "CSS3", "JavaScript"],
-    category: "Landing Page",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-  {
-    id: "demo-2",
-    slug: "admin-dashboard-tailwind",
-    title: "Admin Dashboard Starter Tailwind",
-    description:
-      "Template dashboard admin simpel dengan chart, tabel data, dan sidebar navigasi yang responsif.",
-    price: 49000,
-    originalPrice: 75000,
-    techStack: ["React", "Tailwind CSS", "TypeScript"],
-    category: "Dashboard",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-  {
-    id: "demo-3",
-    slug: "rest-api-express-starter",
-    title: "REST API Express & Prisma Starter",
-    description:
-      "Boilerplate backend REST API lengkap dengan otentikasi JWT, middleware error handler, dan ORM Prisma.",
-    price: 35000,
-    originalPrice: 50000,
-    techStack: ["Node.js", "Express", "Prisma"],
-    category: "Backend",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-];
-
 export default function FeaturedProductsSection({ products }: FeaturedProductsSectionProps) {
-  const displayProducts = products.length > 0 ? products : fallbackFeaturedProducts;
-
   return (
     <section className="py-20 bg-[var(--bg-primary)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,11 +35,23 @@ export default function FeaturedProductsSection({ products }: FeaturedProductsSe
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {products && products.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-16 text-center rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-8">
+            <Package size={44} className="mx-auto mb-3 text-[var(--text-muted)] opacity-60" />
+            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
+              Belum Ada Produk Unggulan
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto">
+              Produk yang kamu tambahkan di Notion database akan otomatis muncul di sini.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

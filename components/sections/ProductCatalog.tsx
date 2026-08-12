@@ -10,76 +10,13 @@ interface ProductCatalogProps {
   initialProducts: Product[];
 }
 
-const fallbackProducts: Product[] = [
-  {
-    id: "demo-1",
-    slug: "landing-page-html-css",
-    title: "Landing Page Personal HTML & CSS",
-    description:
-      "Template landing page responsif, bersih, dan modern. Sangat mudah disesuaikan untuk portofolio atau etalase produk digital.",
-    price: 25000,
-    originalPrice: 45000,
-    techStack: ["HTML5", "CSS3", "JavaScript"],
-    category: "Landing Page",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-  {
-    id: "demo-2",
-    slug: "admin-dashboard-tailwind",
-    title: "Admin Dashboard Starter Tailwind",
-    description:
-      "Template dashboard admin simpel dengan chart, tabel data, dan sidebar navigasi yang responsif.",
-    price: 49000,
-    originalPrice: 75000,
-    techStack: ["React", "Tailwind CSS", "TypeScript"],
-    category: "Dashboard",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-  {
-    id: "demo-3",
-    slug: "rest-api-express-starter",
-    title: "REST API Express & Prisma Starter",
-    description:
-      "Boilerplate backend REST API lengkap dengan otentikasi JWT, middleware error handler, dan ORM Prisma.",
-    price: 35000,
-    originalPrice: 50000,
-    techStack: ["Node.js", "Express", "Prisma"],
-    category: "Backend",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-  },
-  {
-    id: "demo-4",
-    slug: "flutter-ecommerce-ui-kit",
-    title: "Flutter E-Commerce Mobile UI Kit",
-    description:
-      "Kumpulan screen UI aplikasi mobile e-commerce siap integrasi backend.",
-    price: 59000,
-    originalPrice: 89000,
-    techStack: ["Flutter", "Dart"],
-    category: "Mobile",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: false,
-    published: true,
-  },
-];
-
 export default function ProductCatalog({ initialProducts }: ProductCatalogProps) {
-  const products = initialProducts.length > 0 ? initialProducts : fallbackProducts;
+  const products = initialProducts || [];
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  // Extract unique categories
+  // Extract unique categories dynamically from real Notion products
   const categories = useMemo(() => {
     const set = new Set<string>();
     products.forEach((p) => {
@@ -88,7 +25,7 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
     return ["Semua", ...Array.from(set)];
   }, [products]);
 
-  // Filter products
+  // Filter real products
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesCategory =
@@ -122,22 +59,24 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-          <SlidersHorizontal size={16} className="text-[var(--text-muted)] shrink-0 mr-1" />
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
-                selectedCategory === cat
-                  ? "bg-[var(--brand-primary)] text-white"
-                  : "bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        {categories.length > 1 && (
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+            <SlidersHorizontal size={16} className="text-[var(--text-muted)] shrink-0 mr-1" />
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+                  selectedCategory === cat
+                    ? "bg-[var(--brand-primary)] text-white"
+                    : "bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Grid or Empty State */}
@@ -153,10 +92,12 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
         <div className="py-20 text-center rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] p-8">
           <Package size={48} className="mx-auto mb-4 text-[var(--text-muted)] opacity-60" />
           <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
-            Produk tidak ditemukan
+            {products.length === 0 ? "Belum Ada Produk di Database" : "Produk Tidak Ditemukan"}
           </h3>
           <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto">
-            Coba ubah kata kunci pencarian atau pilih kategori lain.
+            {products.length === 0
+              ? "Produk yang kamu masukkan di Notion database akan otomatis muncul di etalase ini."
+              : "Coba ubah kata kunci pencarian atau pilih kategori lain."}
           </p>
         </div>
       )}

@@ -3,84 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExternalLink, ArrowLeft, CheckCircle, Code, ShieldCheck } from "lucide-react";
-import { getProductBySlug, getProducts } from "@/lib/notion";
+import { getProductBySlug } from "@/lib/notion";
 import { formatRupiah } from "@/lib/utils";
-import type { Product } from "@/types/product";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
 }
 
-const fallbackProducts: Record<string, Product> = {
-  "landing-page-html-css": {
-    id: "demo-1",
-    slug: "landing-page-html-css",
-    title: "Landing Page Personal HTML & CSS",
-    description:
-      "Template landing page responsif, bersih, dan modern. Sangat mudah disesuaikan untuk portofolio atau etalase produk digital.",
-    price: 25000,
-    originalPrice: 45000,
-    techStack: ["HTML5", "CSS3", "JavaScript"],
-    category: "Landing Page",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-    features: [
-      "Struktur HTML5 semantik & rapi",
-      "CSS Vanilla tanpa framework tambahan",
-      "Desain fully responsive (Mobile, Tablet, Desktop)",
-      "Animasi smooth scrolling & hover",
-      "Mudah diedit & disesuaikan",
-    ],
-  },
-  "admin-dashboard-tailwind": {
-    id: "demo-2",
-    slug: "admin-dashboard-tailwind",
-    title: "Admin Dashboard Starter Tailwind",
-    description:
-      "Template dashboard admin simpel dengan chart, tabel data, dan sidebar navigasi yang responsif.",
-    price: 49000,
-    originalPrice: 75000,
-    techStack: ["React", "Tailwind CSS", "TypeScript"],
-    category: "Dashboard",
-    thumbnail: "",
-    lynkIdUrl: "https://lynk.id/codeply",
-    featured: true,
-    published: true,
-    features: [
-      "Next.js App Router & React Server Components",
-      "Styling seratus persen dengan Tailwind CSS",
-      "Komponen Reusable (Table, Modal, Card, Navbar)",
-      "Dark mode support bawaan",
-      "TypeScript type safe",
-    ],
-  },
-};
-
 export const revalidate = 3600;
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  let product = await getProductBySlug(slug);
-  if (!product && fallbackProducts[slug]) {
-    product = fallbackProducts[slug];
-  }
+  const product = await getProductBySlug(slug);
 
   if (!product) return { title: "Produk Tidak Ditemukan — Codeply" };
 
   return {
     title: `${product.title} — Codeply`,
-    description: product.description,
+    description: product.description || `Source code ${product.title} oleh Codeply.`,
   };
 }
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  let product = await getProductBySlug(slug);
-  if (!product && fallbackProducts[slug]) {
-    product = fallbackProducts[slug];
-  }
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     notFound();
@@ -131,27 +77,31 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] mb-3">
                 {product.title}
               </h1>
-              <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-                {product.description}
-              </p>
+              {product.description && (
+                <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed whitespace-pre-line">
+                  {product.description}
+                </p>
+              )}
             </div>
 
             {/* Tech Stack */}
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-3">
-                Teknologi yang Digunakan
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {product.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-xs font-semibold rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)]"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            {product.techStack && product.techStack.length > 0 && (
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-3">
+                  Teknologi yang Digunakan
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {product.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-xs font-semibold rounded-lg bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Key Features */}
             {product.features && product.features.length > 0 && (
