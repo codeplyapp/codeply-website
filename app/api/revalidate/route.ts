@@ -1,28 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
-// ── GET: For manual testing or simple ping ─────────────────
+// Global in-memory storage for the latest verification token received from Notion
+let lastVerificationToken = "";
+let lastPayload: any = null;
+
+// ── GET: For manual trigger & retrieving verification token ─────
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const secret = searchParams.get("secret");
-  const path = searchParams.get("path");
-  const slug = searchParams.get("slug");
+  const getToken = searchParams.get("get_token");
 
-  const expectedSecret = process.env.NOTION_WEBHOOK_SECRET || process.env.REVALIDATE_SECRET || "codeply_secret_123";
+  // Endpoint to retrieve the last received verification token for Notion UI verification
+  if (getToken === "true" || getToken === "1") {
+    return NextResponse.json({
+      lastVerificationToken,
+      lastPayload,
+      help: "Salin 'lastVerificationToken' di atas dan tempel ke input 'Token verifikasi' di Notion UI.",
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  const expectedSecret = process.env.NOTION_WEBHOOK_SECRET || process.env.REVALIDATE_SECRET || "codeply_revalidate_secret_123";
 
   if (secret !== expectedSecret) {
     return NextResponse.json({ message: "Invalid secret token" }, { status: 401 });
   }
 
   try {
-    if (slug) {
-      revalidatePath(`/produk/${slug}`);
-    }
-    if (path) {
-      revalidatePath(path);
-    }
-
-    // Always revalidate primary catalog routes
     revalidatePath("/", "layout");
     revalidatePath("/produk", "page");
 
@@ -39,12 +44,8 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// ── POST: For Notion Official Webhooks / Make / Zapier ─────
+// ── POST: Handles Notion Webhook Payload & Verification Token ─
 export async function POST(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const secret = searchParams.get("secret");
-  const expectedSecret = process.env.NOTION_WEBHOOK_SECRET || process.env.REVALIDATE_SECRET || "codeply_secret_123";
-
   let body: any = {};
   try {
     body = await request.json();
@@ -52,26 +53,30 @@ export async function POST(request: NextRequest) {
     body = {};
   }
 
-  // 1. Notion Webhook Verification Challenge Handling
-  // Notion sends { "verification_challenge": "..." } when registering the webhook URL
-  if (body.verification_challenge) {
-    return NextResponse.json({
-      verification_challenge: body.verification_challenge,
-    });
+  console.log("RECEIVED NOTION WEBHOOK PAYLOAD:", JSON.stringify(body));
+  lastPayload = body;
+
+  // Extract verification token if Notion is sending one
+  const token =
+    body.verification_token ||
+    body.token ||
+    body.verification_challenge ||
+    body.challenge ||
+    body.secret;
+
+  if (token) {
+    lastVerificationToken = String(token);
   }
-  if (body.challenge) {
+
+  // 1. Notion Webhook Verification Response (Auto-reply for protocols that require JSON challenge reply)
+  if (body.verification_challenge || body.challenge) {
     return NextResponse.json({
-      challenge: body.challenge,
+      verification_challenge: body.verification_challenge || body.challenge,
+      verification_token: token,
     });
   }
 
-  // 2. Secret verification (query param or header)
-  const headerSecret = request.headers.get("x-webhook-secret") || request.headers.get("x-notion-signature");
-  if (secret !== expectedSecret && headerSecret !== expectedSecret && process.env.NODE_ENV === "production") {
-    return NextResponse.json({ message: "Unauthorized webhook payload" }, { status: 401 });
-  }
-
-  // 3. Revalidate paths
+  // 2. Perform Revalidation
   try {
     revalidatePath("/", "layout");
     revalidatePath("/produk", "page");
@@ -79,6 +84,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       revalidated: true,
+      receivedToken: token || null,
       event: body.type || "notion_event",
       timestamp: new Date().toISOString(),
     });
