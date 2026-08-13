@@ -42,7 +42,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-3 flex flex-col items-center gap-2.5"
+            className="absolute inset-x-0 bottom-full mb-2 flex flex-col items-center gap-2"
           >
             {items.map((item, idx) => (
               <motion.div
@@ -64,9 +64,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 border border-neutral-800 text-white shadow-xl hover:bg-neutral-800 transition-colors"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white shadow-xl border border-neutral-800"
                 >
-                  <div className="h-5 w-5 flex items-center justify-center">{item.icon}</div>
+                  <div className="h-4 w-4 flex items-center justify-center">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -75,9 +75,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 border border-neutral-800 text-white shadow-xl hover:bg-neutral-800 transition-colors"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-white shadow-xl border border-neutral-800"
       >
-        <ChevronUp className={`h-6 w-6 text-neutral-300 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+        <ChevronUp className={`h-5 w-5 text-neutral-300 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
     </div>
   );
@@ -96,7 +96,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-18 items-end gap-5 rounded-2xl bg-neutral-900/95 backdrop-blur-md px-6 pb-3.5 border border-neutral-800 shadow-2xl md:flex",
+        "mx-auto hidden h-14 items-end gap-6 rounded-2xl bg-neutral-900/95 backdrop-blur-md px-6 pb-2.5 md:flex border border-neutral-800 shadow-2xl",
         className,
       )}
     >
@@ -126,14 +126,14 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [44, 88, 44]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [44, 88, 44]);
+  let widthTransform = useTransform(distance, [-140, 0, 140], [36, 62, 36]);
+  let heightTransform = useTransform(distance, [-140, 0, 140], [36, 62, 36]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [22, 44, 22]);
+  let widthTransformIcon = useTransform(distance, [-140, 0, 140], [18, 32, 18]);
   let heightTransformIcon = useTransform(
     distance,
-    [-150, 0, 150],
-    [22, 44, 22],
+    [-140, 0, 140],
+    [18, 32, 18],
   );
 
   let width = useSpring(widthTransform, {
@@ -167,7 +167,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700/80 border border-neutral-700/50 shadow-md transition-colors"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700 transition-colors"
       >
         <AnimatePresence>
           {hovered && (
@@ -175,7 +175,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-10 left-1/2 w-fit rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1 text-xs font-medium whitespace-pre text-white shadow-xl"
+              className="absolute -top-7 left-1/2 w-fit rounded-md border border-neutral-800 bg-neutral-900 px-2 py-0.5 text-[11px] whitespace-pre text-white shadow-md"
             >
               {title}
             </motion.div>
@@ -183,7 +183,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-neutral-200"
+          className="flex items-center justify-center text-white"
         >
           {icon}
         </motion.div>

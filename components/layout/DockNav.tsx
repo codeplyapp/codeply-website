@@ -33,14 +33,14 @@ export default function DockNav() {
     },
     {
       title: "Beli di Lynk.id",
-      icon: <ExternalLink className="h-full w-full text-emerald-400" />,
+      icon: <ExternalLink className="h-full w-full text-[var(--brand-primary)]" />,
       href: "https://lynk.id/codeply",
     },
   ];
 
   return (
     <div className="fixed bottom-6 inset-x-0 z-50 flex justify-center pointer-events-none px-4">
-      <div className="pointer-events-auto shadow-2xl">
+      <div className="pointer-events-auto">
         <FloatingDock items={links} />
       </div>
     </div>
