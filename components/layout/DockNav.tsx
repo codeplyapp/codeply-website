@@ -13,27 +13,27 @@ export default function DockNav() {
   const links = [
     {
       title: "Beranda",
-      icon: <Home className="h-full w-full text-white stroke-[2.2]" />,
+      icon: <Home className="h-full w-full text-neutral-200" />,
       href: "/",
     },
     {
       title: "Etalase Produk",
-      icon: <ShoppingBag className="h-full w-full text-white stroke-[2.2]" />,
+      icon: <ShoppingBag className="h-full w-full text-neutral-200" />,
       href: "/produk",
     },
     {
       title: "Portofolio",
-      icon: <Briefcase className="h-full w-full text-white stroke-[2.2]" />,
+      icon: <Briefcase className="h-full w-full text-neutral-200" />,
       href: "/portofolio",
     },
     {
       title: "Tentang Saya",
-      icon: <User className="h-full w-full text-white stroke-[2.2]" />,
+      icon: <User className="h-full w-full text-neutral-200" />,
       href: "/tentang",
     },
     {
       title: "Beli di Lynk.id",
-      icon: <ExternalLink className="h-full w-full text-white stroke-[2.5]" />,
+      icon: <ExternalLink className="h-full w-full text-[var(--brand-primary)]" />,
       href: "https://lynk.id/codeply",
     },
   ];

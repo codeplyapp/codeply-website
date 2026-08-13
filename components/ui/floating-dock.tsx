@@ -42,7 +42,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-3 flex flex-col items-center gap-2"
+            className="absolute inset-x-0 bottom-full mb-2 flex flex-col items-center gap-2"
           >
             {items.map((item, idx) => (
               <motion.div
@@ -64,9 +64,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1b090e] text-white shadow-2xl border-2 border-[#c13e63] hover:bg-[#c13e63] transition-colors"
+                  className="group flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#74253c] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
                 >
-                  <div className="h-5 w-5 flex items-center justify-center text-white">{item.icon}</div>
+                  <div className="h-5 w-5 flex items-center justify-center text-[#74253c] group-hover:text-white transition-colors">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -75,9 +75,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1b090e] text-white shadow-2xl border-2 border-[#c13e63] hover:bg-[#c13e63] transition-colors"
+        className="group flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#74253c] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
       >
-        <ChevronUp className={`h-6 w-6 text-white transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <ChevronUp className="h-5 w-5 text-[#74253c] group-hover:text-white transition-transform duration-200" />
       </button>
     </div>
   );
@@ -96,7 +96,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-center gap-5 rounded-2xl bg-[#1b090e] px-6 py-2 md:flex border-2 border-[#c13e63] shadow-[0_12px_40px_rgba(27,9,14,0.6)]",
+        "mx-auto hidden h-14 items-end gap-6 rounded-2xl bg-white/95 backdrop-blur-xl px-6 pb-2.5 md:flex border border-[#e6b2c1] shadow-[0_10px_35px_rgba(193,62,99,0.18)]",
         className,
       )}
     >
@@ -126,14 +126,14 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-140, 0, 140], [38, 64, 38]);
-  let heightTransform = useTransform(distance, [-140, 0, 140], [38, 64, 38]);
+  let widthTransform = useTransform(distance, [-140, 0, 140], [36, 62, 36]);
+  let heightTransform = useTransform(distance, [-140, 0, 140], [36, 62, 36]);
 
-  let widthTransformIcon = useTransform(distance, [-140, 0, 140], [20, 34, 20]);
+  let widthTransformIcon = useTransform(distance, [-140, 0, 140], [18, 32, 18]);
   let heightTransformIcon = useTransform(
     distance,
     [-140, 0, 140],
-    [20, 34, 20],
+    [18, 32, 18],
   );
 
   let width = useSpring(widthTransform, {
@@ -161,13 +161,13 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
+    <a href={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-[#4d1928] hover:bg-[#c13e63] text-white transition-colors border border-[#e6b2c1]/50 shadow-md"
+        className="group relative flex aspect-square items-center justify-center rounded-full bg-[#f3d8e0] hover:bg-[#c13e63] transition-colors border border-[#e6b2c1] shadow-sm"
       >
         <AnimatePresence>
           {hovered && (
@@ -175,7 +175,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border-2 border-[#c13e63] bg-[#1b090e] px-2.5 py-1 text-xs font-semibold whitespace-pre text-white shadow-xl"
+              className="absolute -top-7 left-1/2 w-fit rounded-md border border-[#c13e63]/40 bg-[#1b090e] px-2.5 py-0.5 text-[11px] whitespace-pre text-white shadow-lg font-medium"
             >
               {title}
             </motion.div>
@@ -183,7 +183,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-white"
+          className="flex items-center justify-center text-[#74253c] group-hover:text-white transition-colors"
         >
           {icon}
         </motion.div>
