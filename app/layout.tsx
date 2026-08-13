@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     icon: "/logo.png",
     apple: "/logo.png",
   },
+  verification: {
+    google: "google5eeeb54992a8fedb",
+  },
   openGraph: {
     title: "Codeply — Source Code untuk Pemula",
     description: "Source code simple berkualitas untuk pemula. Beli, pelajari, dan kembangkan!",
