@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getProducts } from "@/lib/notion";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://codeply.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://codeply-website.vercel.app";
 
   // Static routes
   const routes = ["", "/produk", "/portofolio", "/tentang"].map((route) => ({
