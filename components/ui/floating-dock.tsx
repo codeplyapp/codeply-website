@@ -64,9 +64,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="group flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#74253c] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
+                  className="group flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#c13e63] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
                 >
-                  <div className="h-5 w-5 flex items-center justify-center text-[#74253c] group-hover:text-white transition-colors">{item.icon}</div>
+                  <div className="h-5 w-5 flex items-center justify-center text-[#c13e63] group-hover:text-white transition-colors">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -75,9 +75,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="group flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#74253c] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
+        className="group flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#c13e63] shadow-xl border border-[#e6b2c1] hover:bg-[#c13e63] transition-colors"
       >
-        <ChevronUp className="h-5 w-5 text-[#74253c] group-hover:text-white transition-transform duration-200" />
+        <ChevronUp className="h-5 w-5 text-[#c13e63] group-hover:text-white transition-transform duration-200" />
       </button>
     </div>
   );
@@ -167,7 +167,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="group relative flex aspect-square items-center justify-center rounded-full bg-[#f3d8e0] hover:bg-[#c13e63] transition-colors border border-[#e6b2c1] shadow-sm"
+        className="group relative flex aspect-square items-center justify-center rounded-full bg-[#f9ecef] hover:bg-[#c13e63] transition-colors border border-[#e6b2c1] shadow-sm"
       >
         <AnimatePresence>
           {hovered && (
@@ -183,7 +183,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-[#74253c] group-hover:text-white transition-colors"
+          className="flex items-center justify-center text-[#c13e63] group-hover:text-white transition-colors"
         >
           {icon}
         </motion.div>
