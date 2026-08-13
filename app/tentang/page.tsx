@@ -103,7 +103,7 @@ export default function AboutPage() {
               <ExternalLink size={14} />
             </a>
             <a
-              href="https://github.com/codeply"
+              href="https://github.com/codeplyapp"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-white border border-[#e6b2c1] hover:bg-[#f3d8e0] text-[#1b090e] transition-colors"

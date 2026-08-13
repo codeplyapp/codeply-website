@@ -8,7 +8,7 @@ import { ExternalLink, Globe } from "lucide-react";
 export function SocialCloud({ className }: { className?: string }) {
   const socials = [
     { name: "Lynk.id", href: "https://lynk.id/codeply", icon: ExternalLink },
-    { name: "GitHub", href: "https://github.com/codeply", icon: GithubIcon },
+    { name: "GitHub", href: "https://github.com/codeplyapp", icon: GithubIcon },
     { name: "Instagram", href: "https://instagram.com/codeply", icon: InstagramIcon },
     { name: "Website", href: "/", icon: Globe },
   ];
