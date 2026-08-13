@@ -10,50 +10,68 @@ const DATABASE_ID = process.env.NOTION_DATABASE_ID || "3ba1f2c14b19800cac9fdec82
 
 // ── Helpers ──────────────────────────────────────────────
 
-function getText(property: any): string {
+interface NotionProperty {
+  type?: string;
+  title?: Array<{ plain_text?: string }>;
+  rich_text?: Array<{ plain_text?: string }>;
+  number?: number;
+  url?: string;
+  checkbox?: boolean;
+  multi_select?: Array<{ name?: string }>;
+  select?: { name?: string };
+  files?: Array<{ type?: string; file?: { url?: string }; external?: { url?: string } }>;
+}
+
+interface NotionPage {
+  id: string;
+  created_time: string;
+  properties: Record<string, NotionProperty>;
+}
+
+function getText(property: NotionProperty | undefined): string {
   if (!property) return "";
   if (property.type === "title" && Array.isArray(property.title)) {
-    return property.title.map((t: any) => t.plain_text).join("") ?? "";
+    return property.title.map((t) => t.plain_text || "").join("") ?? "";
   }
   if (property.type === "rich_text" && Array.isArray(property.rich_text)) {
-    return property.rich_text.map((t: any) => t.plain_text).join("") ?? "";
+    return property.rich_text.map((t) => t.plain_text || "").join("") ?? "";
   }
   return "";
 }
 
-function getNumber(property: any): number {
+function getNumber(property: NotionProperty | undefined): number {
   if (!property) return 0;
   if (property.type === "number") return property.number ?? 0;
   return 0;
 }
 
-function getUrl(property: any): string {
+function getUrl(property: NotionProperty | undefined): string {
   if (!property) return "";
   if (property.type === "url") return property.url ?? "";
   return "";
 }
 
-function getCheckbox(property: any): boolean {
+function getCheckbox(property: NotionProperty | undefined): boolean {
   if (!property) return false;
   if (property.type === "checkbox") return property.checkbox ?? false;
   return false;
 }
 
-function getMultiSelect(property: any): string[] {
+function getMultiSelect(property: NotionProperty | undefined): string[] {
   if (!property) return [];
   if (property.type === "multi_select" && Array.isArray(property.multi_select)) {
-    return property.multi_select.map((s: any) => s.name) ?? [];
+    return property.multi_select.map((s) => s.name || "").filter(Boolean);
   }
   return [];
 }
 
-function getSelect(property: any): string {
+function getSelect(property: NotionProperty | undefined): string {
   if (!property) return "";
   if (property.type === "select") return property.select?.name ?? "";
   return "";
 }
 
-function getFiles(property: any): string {
+function getFiles(property: NotionProperty | undefined): string {
   if (!property) return "";
   if (property.type === "files" && Array.isArray(property.files) && property.files.length > 0) {
     const file = property.files[0];
@@ -65,7 +83,7 @@ function getFiles(property: any): string {
 
 // ── Mapper ───────────────────────────────────────────────
 
-function mapNotionToProduct(page: any): Product {
+function mapNotionToProduct(page: NotionPage): Product {
   const props = page.properties || {};
 
   const title =
@@ -106,17 +124,17 @@ function mapNotionToProduct(page: any): Product {
 
 // ── Query Engine (Hybrid Search & DataSources) ────────────
 
-async function fetchNotionPages(): Promise<any[]> {
+async function fetchNotionPages(): Promise<NotionPage[]> {
   if (!process.env.NOTION_TOKEN) return [];
 
-  // Strategy 1: Notion Search API (Most reliable across workspace database structures)
+  // Strategy 1: Notion Search API
   try {
     const searchRes = await notion.search({
       filter: { value: "page", property: "object" },
       sort: { direction: "descending", timestamp: "last_edited_time" },
     });
     if (searchRes.results && searchRes.results.length > 0) {
-      return searchRes.results;
+      return searchRes.results as unknown as NotionPage[];
     }
   } catch (err) {
     console.warn("Search query notice:", (err as Error).message);
@@ -127,7 +145,7 @@ async function fetchNotionPages(): Promise<any[]> {
     const res = await notion.dataSources.query({
       data_source_id: DATABASE_ID,
     });
-    if (res.results) return res.results;
+    if (res.results) return res.results as unknown as NotionPage[];
   } catch (err) {
     console.warn("DataSources query notice:", (err as Error).message);
   }

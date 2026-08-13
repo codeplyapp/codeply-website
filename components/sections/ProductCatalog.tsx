@@ -11,7 +11,7 @@ interface ProductCatalogProps {
 }
 
 export default function ProductCatalog({ initialProducts }: ProductCatalogProps) {
-  const products = initialProducts || [];
+  const products = useMemo(() => initialProducts || [], [initialProducts]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Semua");

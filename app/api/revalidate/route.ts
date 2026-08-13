@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 
 // Global in-memory storage for the latest verification token received from Notion
 let lastVerificationToken = "";
-let lastPayload: any = null;
+let lastPayload: Record<string, unknown> | null = null;
 
 // ── GET: For manual trigger & retrieving verification token ─────
 export async function GET(request: NextRequest) {
@@ -46,9 +46,9 @@ export async function GET(request: NextRequest) {
 
 // ── POST: Handles Notion Webhook Payload & Verification Token ─
 export async function POST(request: NextRequest) {
-  let body: any = {};
+  let body: Record<string, unknown> = {};
   try {
-    body = await request.json();
+    body = (await request.json()) as Record<string, unknown>;
   } catch {
     body = {};
   }
@@ -58,11 +58,11 @@ export async function POST(request: NextRequest) {
 
   // Extract verification token if Notion is sending one
   const token =
-    body.verification_token ||
-    body.token ||
-    body.verification_challenge ||
-    body.challenge ||
-    body.secret;
+    (body.verification_token as string) ||
+    (body.token as string) ||
+    (body.verification_challenge as string) ||
+    (body.challenge as string) ||
+    (body.secret as string);
 
   if (token) {
     lastVerificationToken = String(token);
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       revalidated: true,
       receivedToken: token || null,
-      event: body.type || "notion_event",
+      event: (body.type as string) || "notion_event",
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
