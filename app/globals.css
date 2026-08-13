@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=sentient@200,300,400,500,700&display=swap");
 @import "tailwindcss";
 
 /* ── Custom Color Tokens ── */
@@ -59,8 +59,8 @@
 @theme inline {
   --color-background: var(--bg-primary);
   --color-foreground: var(--text-primary);
-  --font-sans: "Outfit", sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Sentient", serif;
+  --font-serif: "Sentient", serif;
 
   /* Expose brand colors to Tailwind */
   --color-bone-50: #f6f4ef;
@@ -113,9 +113,16 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: "Outfit", sans-serif;
+  font-family: "Sentient", serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Titles font weight tuning for Sentient Light */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Sentient", serif;
+  font-weight: 400;
 }
 
 /* Gradient text utility */
