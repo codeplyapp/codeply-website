@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Code2, Terminal, Sparkles, ExternalLink } from "lucide-react";
+import { Code2, Terminal, ExternalLink } from "lucide-react";
 import { GithubIcon, InstagramIcon } from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
@@ -30,10 +30,6 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#512B81] text-white border border-[#9400FF]/40 text-xs font-semibold mb-3">
-              <Sparkles size={14} className="text-[#9400FF]" />
-              <span>Vibe Coder & Creator</span>
-            </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
               Halo, Saya <span className="gradient-text">Codeply</span> 👋
             </h1>
