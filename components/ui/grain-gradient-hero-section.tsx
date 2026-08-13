@@ -31,21 +31,21 @@ export default function GrainHeroSection({
   };
 
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-24 bg-[#0a0a0a]">
+    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-24 bg-[#edf5f7]">
       <GrainGradient
         {...grainGradientPresets[0]}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0 }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0, opacity: 0.85 }}
       />
       
       <div className="text-center px-6 sm:px-8 max-w-4xl mx-auto z-10 relative">
         <h1 
           role="heading" 
-          className="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight"
+          className="text-4xl sm:text-6xl font-extrabold text-[#0b1619] mb-6 tracking-tight leading-tight"
         >
           {title}
         </h1>
         
-        <p className="max-w-2xl text-lg sm:text-xl text-gray-200 mx-auto mb-10 leading-relaxed">
+        <p className="max-w-2xl text-lg sm:text-xl text-[#2e606b] mx-auto mb-10 leading-relaxed font-medium">
           {subtitle}
         </p>
         
@@ -53,7 +53,7 @@ export default function GrainHeroSection({
           <Button 
             onClick={handleClick}
             size="lg"
-            className="text-base sm:text-lg px-8 py-3.5 bg-white text-black hover:bg-gray-100 font-bold rounded-xl cursor-pointer shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2"
+            className="text-base sm:text-lg px-8 py-3.5 bg-[#3d808f] hover:bg-[#2e606b] text-white font-bold rounded-xl cursor-pointer shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 border border-[#70b3c2]/40"
           >
             <span>{ctaLabel}</span>
             <ArrowRight size={20} />

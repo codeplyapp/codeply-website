@@ -47,29 +47,29 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
         <div className="relative flex-1 max-w-md">
           <Search
             size={18}
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#4e6d7e]"
           />
           <input
             type="text"
             placeholder="Cari source code, fitur, atau teknologi..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0f2024] border border-[var(--border-color)] text-sm text-[#edf5f7] focus:outline-none focus:border-[#4da0b3] transition-colors placeholder:text-[var(--text-muted)] shadow-inner"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-[#b8d9e0] text-sm text-[#0b1619] focus:outline-none focus:border-[#3d808f] transition-colors placeholder:text-[#81a0b1] shadow-sm"
           />
         </div>
 
         {/* Category Filter Pills */}
         {categories.length > 1 && (
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-            <SlidersHorizontal size={16} className="text-[var(--text-muted)] shrink-0 mr-1" />
+            <SlidersHorizontal size={16} className="text-[#4e6d7e] shrink-0 mr-1" />
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   selectedCategory === cat
-                    ? "bg-[#4da0b3] text-[#0b1619] border border-[#70b3c2] shadow-lg font-bold"
-                    : "bg-[#0f2024] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:border-[#4da0b3]/50"
+                    ? "bg-[#3d808f] text-white border border-[#3d808f] shadow-md"
+                    : "bg-white border border-[#b8d9e0] text-[#2e606b] hover:text-[#0b1619] hover:border-[#3d808f]/50"
                 }`}
               >
                 {cat}
@@ -89,12 +89,12 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
           ))}
         </div>
       ) : (
-        <div className="py-20 text-center rounded-2xl bg-[#0f2024] border border-[var(--border-color)] p-8">
-          <Package size={48} className="mx-auto mb-4 text-[#4da0b3] opacity-60" />
-          <h3 className="text-lg font-bold text-[#edf5f7] mb-2">
+        <div className="py-20 text-center rounded-2xl bg-white border border-[#b8d9e0] p-8 shadow-sm">
+          <Package size={48} className="mx-auto mb-4 text-[#3d808f] opacity-60" />
+          <h3 className="text-lg font-bold text-[#0b1619] mb-2">
             {products.length === 0 ? "Belum Ada Produk di Database" : "Produk Tidak Ditemukan"}
           </h3>
-          <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto">
+          <p className="text-sm text-[#3a515f] max-w-sm mx-auto">
             {products.length === 0
               ? "Produk yang kamu masukkan di Notion database akan otomatis muncul di etalase ini."
               : "Coba ubah kata kunci pencarian atau pilih kategori lain."}

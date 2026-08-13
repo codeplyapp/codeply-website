@@ -64,9 +64,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-900 text-white shadow-xl border border-neutral-800"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0b1619] shadow-xl border border-[#b8d9e0]"
                 >
-                  <div className="h-4 w-4 flex items-center justify-center">{item.icon}</div>
+                  <div className="h-4 w-4 flex items-center justify-center text-[#2e606b]">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -75,9 +75,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-white shadow-xl border border-neutral-800"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#0b1619] shadow-xl border border-[#b8d9e0]"
       >
-        <ChevronUp className={`h-5 w-5 text-neutral-300 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <ChevronUp className={`h-5 w-5 text-[#2e606b] transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
     </div>
   );
@@ -96,7 +96,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-14 items-end gap-6 rounded-2xl bg-neutral-900/95 backdrop-blur-md px-6 pb-2.5 md:flex border border-neutral-800 shadow-2xl",
+        "mx-auto hidden h-14 items-end gap-6 rounded-2xl bg-white/90 backdrop-blur-md px-6 pb-2.5 md:flex border border-[#b8d9e0] shadow-2xl",
         className,
       )}
     >
@@ -167,7 +167,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700 transition-colors"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-[#dbecf0]/70 hover:bg-[#3d808f] hover:text-white transition-colors text-[#2e606b] border border-[#b8d9e0]/60"
       >
         <AnimatePresence>
           {hovered && (
@@ -175,7 +175,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-7 left-1/2 w-fit rounded-md border border-neutral-800 bg-neutral-900 px-2 py-0.5 text-[11px] whitespace-pre text-white shadow-md"
+              className="absolute -top-7 left-1/2 w-fit rounded-md border border-[#b8d9e0] bg-[#0b1619] px-2 py-0.5 text-[11px] whitespace-pre text-white shadow-md font-medium"
             >
               {title}
             </motion.div>
@@ -183,7 +183,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-white"
+          className="flex items-center justify-center"
         >
           {icon}
         </motion.div>

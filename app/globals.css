@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
-/* ── Custom Color Tokens (Ink Black, Steel Blue, Tea Green Palette) ── */
+/* ── Custom Color Tokens (Ink Black, Steel Blue, Tea Green Palette - LIGHT MODE) ── */
 :root {
   /* Ink Black Scale */
   --color-ink-black-50: #edf5f7;
@@ -42,20 +42,20 @@
   --color-tea-green-900: #132014;
   --color-tea-green-950: #0d160e;
 
-  /* Theme Tokens */
-  --bg-primary: #0b1619;
-  --bg-surface: #0f2024;
-  --bg-muted: #1f4047;
-  --text-primary: #edf5f7;
-  --text-secondary: #b8d9e0;
-  --text-muted: #70b3c2;
-  --border-color: rgba(112, 179, 194, 0.22);
+  /* Light Theme Tokens */
+  --bg-primary: #edf5f7;
+  --bg-surface: #ffffff;
+  --bg-muted: #dbecf0;
+  --text-primary: #0b1619;
+  --text-secondary: #2e606b;
+  --text-muted: #4e6d7e;
+  --border-color: rgba(46, 96, 107, 0.18);
 
-  --brand-primary: #4da0b3;
-  --brand-primary-hover: #70b3c2;
-  --brand-accent: #609f65;
-  --brand-accent-hover: #80b384;
-  --brand-steel: #61889e;
+  --brand-primary: #3d808f;
+  --brand-primary-hover: #2e606b;
+  --brand-accent: #4d8051;
+  --brand-accent-hover: #39603d;
+  --brand-steel: #4e6d7e;
 }
 
 @theme inline {
@@ -112,7 +112,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -130,9 +130,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-weight: 700;
 }
 
-/* Gradient text utility using Tea Green, Ink Cyan & Steel Blue */
+/* Gradient text utility in Light Mode */
 .gradient-text {
-  background: linear-gradient(135deg, #80b384 0%, #4da0b3 50%, #81a0b1 100%);
+  background: linear-gradient(135deg, #39603d 0%, #2e606b 50%, #3a515f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Glassmorphism card */
 .glass-card {
-  background: rgba(15, 32, 36, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
@@ -154,6 +154,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(77, 160, 179, 0.35);
+  background: rgba(61, 128, 143, 0.35);
   border-radius: 3px;
 }
