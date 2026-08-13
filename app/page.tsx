@@ -15,6 +15,7 @@ export default async function HomePage() {
         title="Siap Pakai, Pelajari, & Kembangkan Projekmu"
         subtitle="Kumpulan source code berkualitas tinggi yang dirancang simpel dan rapi untuk pemula & vibe coder."
         ctaLabel="Eksplor Etalase"
+        ctaHref="/produk"
       />
       <FeaturedProductsSection products={featuredProducts} />
       <WhyUs />

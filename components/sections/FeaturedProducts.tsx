@@ -16,11 +16,11 @@ export default function FeaturedProductsSection({ products }: FeaturedProductsSe
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-bone-200)] text-[var(--text-secondary)] text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-semibold mb-3">
               <Sparkles size={14} className="text-[var(--brand-primary)]" />
               <span>Pilihan Terbaik</span>
             </div>
-            <h2 className="text-3xl font-extrabold text-[var(--text-primary)]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Produk Source Code Unggulan
             </h2>
           </div>

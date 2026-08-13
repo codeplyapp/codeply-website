@@ -46,8 +46,8 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map(({ icon: Icon, title, description }, idx) => (
             <FadeIn key={title} delay={idx * 0.1}>
-              <div className="h-full p-6 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border-color)] hover:border-[var(--brand-accent)] transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-[var(--color-celadon-100)] text-[var(--brand-primary)] flex items-center justify-center mb-5">
+              <div className="h-full p-6 rounded-2xl bg-[#141414] border border-[var(--border-color)] hover:border-[var(--brand-accent)] transition-all duration-300 shadow-xl">
+                <div className="w-12 h-12 rounded-xl bg-emerald-950/60 text-[var(--brand-primary)] border border-emerald-800/40 flex items-center justify-center mb-5">
                   <Icon size={24} />
                 </div>
                 <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">{title}</h3>

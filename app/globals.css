@@ -42,29 +42,18 @@
   --color-muted-teal-900: #141f1d;
   --color-muted-teal-950: #0e1614;
 
-  /* Semantic Tokens */
-  --bg-primary: var(--color-bone-50);
-  --bg-surface: var(--color-bone-100);
-  --bg-muted: var(--color-bone-200);
-  --text-primary: var(--color-bone-900);
-  --text-secondary: var(--color-bone-700);
-  --text-muted: var(--color-bone-500);
-  --border-color: var(--color-bone-200);
+  /* Dark Theme Tokens aligned with Grain Hero Shader */
+  --bg-primary: #0a0a0a;
+  --bg-surface: #141414;
+  --bg-muted: #1f1f1f;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --border-color: rgba(255, 255, 255, 0.12);
   --brand-primary: var(--color-celadon-500);
   --brand-primary-hover: var(--color-celadon-600);
   --brand-accent: var(--color-muted-teal-500);
   --brand-accent-hover: var(--color-muted-teal-600);
-}
-
-/* Dark mode override */
-[data-theme="dark"] {
-  --bg-primary: var(--color-bone-950);
-  --bg-surface: var(--color-bone-900);
-  --bg-muted: var(--color-bone-800);
-  --text-primary: var(--color-bone-50);
-  --text-secondary: var(--color-bone-200);
-  --text-muted: var(--color-bone-400);
-  --border-color: var(--color-bone-800);
 }
 
 @theme inline {
@@ -118,6 +107,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -130,7 +120,7 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-celadon-500), var(--color-teal-500));
+  background: linear-gradient(135deg, var(--color-celadon-400), var(--color-teal-400));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -138,15 +128,10 @@ body {
 
 /* Glassmorphism card */
 .glass-card {
-  background: rgba(246, 244, 239, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-bone-200);
-}
-
-[data-theme="dark"] .glass-card {
-  background: rgba(23, 21, 13, 0.7);
-  border: 1px solid var(--color-bone-800);
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
 }
 
 /* Scrollbar */
@@ -154,9 +139,9 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-surface);
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bone-300);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
 }

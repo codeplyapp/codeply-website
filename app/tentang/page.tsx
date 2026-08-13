@@ -24,13 +24,13 @@ export default function AboutPage() {
         {/* Intro Header */}
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[var(--color-celadon-500)] to-[var(--color-muted-teal-500)] p-1 shrink-0 shadow-xl">
-            <div className="w-full h-full rounded-[22px] bg-[var(--bg-surface)] flex items-center justify-center">
+            <div className="w-full h-full rounded-[22px] bg-[#141414] flex items-center justify-center">
               <Code2 size={56} className="text-[var(--brand-primary)]" />
             </div>
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-celadon-100)] text-[var(--color-celadon-800)] text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800/40 text-xs font-semibold mb-3">
               <Sparkles size={14} className="text-[var(--brand-primary)]" />
               <span>Vibe Coder & Creator</span>
             </div>
@@ -44,16 +44,16 @@ export default function AboutPage() {
         </div>
 
         {/* Story / Mission */}
-        <div className="p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] space-y-4">
+        <div className="p-8 rounded-2xl bg-[#141414] border border-[var(--border-color)] space-y-4">
           <h2 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
             <Terminal size={20} className="text-[var(--brand-primary)]" />
             <span>Filosofi & Misi</span>
           </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-            Banyak pemula merasa kesulitan saat pertama kali belajar koding karena tutorial seringkali terlalu abstrak atau kompleks. Melalui proyek ini, saya menyediakan template dan source code yang **langsung jalan**, **rapi**, serta **mudah dipelajari**.
+            Banyak pemula merasa kesulitan saat pertama kali belajar koding karena tutorial seringkali terlalu abstrak atau kompleks. Melalui proyek ini, saya menyediakan template dan source code yang <strong className="text-white">langsung jalan</strong>, <strong className="text-white">rapi</strong>, serta <strong className="text-white">mudah dipelajari</strong>.
           </p>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-            Semua transaksi pembelian source code dilakukan dengan cepat dan otomatis melalui platform **Lynk.id**.
+            Semua transaksi pembelian source code dilakukan dengan cepat dan otomatis melalui platform <strong className="text-white">Lynk.id</strong>.
           </p>
         </div>
 
@@ -66,12 +66,12 @@ export default function AboutPage() {
             {skills.map((skill) => (
               <div
                 key={skill.name}
-                className="p-4 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] flex items-center justify-between"
+                className="p-4 rounded-xl bg-[#141414] border border-[var(--border-color)] flex items-center justify-between"
               >
                 <span className="font-semibold text-sm text-[var(--text-primary)]">
                   {skill.name}
                 </span>
-                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--color-bone-200)] text-[var(--text-secondary)]">
+                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-neutral-800 text-neutral-300 border border-neutral-700/50">
                   {skill.level}
                 </span>
               </div>
@@ -80,10 +80,10 @@ export default function AboutPage() {
         </div>
 
         {/* Social Links & Store */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-[var(--color-celadon-800)] to-[var(--color-muted-teal-800)] text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-900 to-emerald-950 border border-emerald-800/40 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
             <h3 className="font-bold text-lg mb-1">Mari Terhubung & Berdiskusi</h3>
-            <p className="text-xs sm:text-sm text-white/80">
+            <p className="text-xs sm:text-sm text-gray-300">
               Kunjungi sosial media atau profil toko saya di Lynk.id.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               href="https://lynk.id/codeply"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-white text-[var(--color-celadon-900)] text-xs font-bold flex items-center gap-2 hover:bg-white/90 transition-colors"
+              className="px-4 py-2.5 rounded-xl bg-white text-black text-xs font-bold flex items-center gap-2 hover:bg-gray-100 transition-colors shadow-lg"
             >
               <span>Lynk.id Store</span>
               <ExternalLink size={14} />
