@@ -7,12 +7,12 @@ import { motion, Variants } from "framer-motion";
 
 const CodeplyLogo = () => {
   return (
-    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-[#0b1619]">
-      <div className="w-10 h-10 rounded-xl bg-[#3d808f] flex items-center justify-center shadow-lg shadow-[#3d808f]/30">
+    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-[#1b090e]">
+      <div className="w-10 h-10 rounded-xl bg-[#c13e63] flex items-center justify-center shadow-lg shadow-[#c13e63]/30">
         <Code2 size={22} className="text-white" />
       </div>
       <span className="font-heading">
-        code<span className="text-[#3d808f]">ply</span>
+        code<span className="text-[#c13e63]">ply</span>
       </span>
     </Link>
   );
@@ -44,7 +44,7 @@ export default function Footer1() {
   };
 
   return (
-    <footer className="w-full py-12 bg-[#edf5f7] text-[#0b1619] overflow-hidden border-t border-[#b8d9e0]">
+    <footer className="w-full py-12 bg-[#f9ecef] text-[#1b090e] overflow-hidden border-t border-[#e6b2c1]">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -72,15 +72,15 @@ export default function Footer1() {
             <motion.a
               key={item.label}
               href={item.href}
-              className="relative px-3 py-1.5 group text-[#2e606b]"
+              className="relative px-3 py-1.5 group text-[#74253c]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 group-hover:text-[#0b1619] transition-colors duration-300 font-semibold">
+              <span className="relative z-10 group-hover:text-[#1b090e] transition-colors duration-300 font-semibold">
                 {item.label}
               </span>
               <motion.span
-                className="absolute inset-0 bg-white rounded-md -z-0 origin-center border border-[#b8d9e0] shadow-sm"
+                className="absolute inset-0 bg-white rounded-md -z-0 origin-center border border-[#e6b2c1] shadow-sm"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -97,7 +97,7 @@ export default function Footer1() {
 
       {/* Divider */}
       <motion.div
-        className="w-full h-12 border-y border-[#0b1619] opacity-10 bg-[repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]"
+        className="w-full h-12 border-y border-[#1b090e] opacity-10 bg-[repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]"
         style={{ backgroundSize: "10px 10px" }}
         initial={{ backgroundPositionX: "0%" }}
         whileInView={{ backgroundPositionX: "100%" }}
@@ -110,7 +110,7 @@ export default function Footer1() {
 
       {/* Copyright */}
       <motion.div
-        className="container mx-auto px-4 mt-8 text-center text-sm text-[#4e6d7e]"
+        className="container mx-auto px-4 mt-8 text-center text-sm text-[#83495c]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}

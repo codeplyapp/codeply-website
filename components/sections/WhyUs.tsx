@@ -30,14 +30,14 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="py-20 bg-[#dbecf0]/40 border-y border-[#b8d9e0]/60">
+    <section className="py-20 bg-[#f3d8e0]/40 border-y border-[#e6b2c1]/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-[#0b1619] mb-4">
+            <h2 className="text-3xl font-extrabold text-[#1b090e] mb-4">
               Mengapa Memilih Source Code <span className="gradient-text">Codeply</span>?
             </h2>
-            <p className="text-[#2e606b] text-sm sm:text-base">
+            <p className="text-[#74253c] text-sm sm:text-base">
               Didesain khusus untuk mempercepat progress kodingmu tanpa harus mulai dari nol.
             </p>
           </div>
@@ -46,12 +46,12 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map(({ icon: Icon, title, description }, idx) => (
             <FadeIn key={title} delay={idx * 0.1}>
-              <div className="h-full p-6 rounded-2xl bg-white border border-[#b8d9e0]/80 hover:border-[#3d808f] transition-all duration-300 shadow-sm hover:shadow-xl group">
-                <div className="w-12 h-12 rounded-xl bg-[#dbecf0] text-[#3d808f] border border-[#b8d9e0] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+              <div className="h-full p-6 rounded-2xl bg-white border border-[#e6b2c1]/70 hover:border-[#c13e63] transition-all duration-300 shadow-sm hover:shadow-xl group">
+                <div className="w-12 h-12 rounded-xl bg-[#f3d8e0] text-[#c13e63] border border-[#e6b2c1] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
                   <Icon size={24} />
                 </div>
-                <h3 className="font-bold text-lg text-[#0b1619] mb-2">{title}</h3>
-                <p className="text-xs sm:text-sm text-[#3a515f] leading-relaxed">
+                <h3 className="font-bold text-lg text-[#1b090e] mb-2">{title}</h3>
+                <p className="text-xs sm:text-sm text-[#623745] leading-relaxed">
                   {description}
                 </p>
               </div>
