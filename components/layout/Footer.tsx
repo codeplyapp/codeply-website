@@ -30,20 +30,20 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--border-color)] bg-[var(--bg-surface)]">
+    <footer className="border-t border-[var(--border-color)] bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-3">
             <Link
               href="/"
-              className="flex items-center gap-2 font-bold text-xl text-[var(--text-primary)]"
+              className="flex items-center gap-2 font-bold text-xl text-white"
             >
-              <div className="w-8 h-8 rounded-lg bg-[var(--brand-primary)] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#4D2DB7] flex items-center justify-center shadow-md">
                 <Code2 size={18} className="text-white" />
               </div>
               <span>
-                code<span className="text-[var(--brand-primary)]">ply</span>
+                code<span className="text-[#AD7BE9]">ply</span>
               </span>
             </Link>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-xs">
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Nav Links */}
           <div>
-            <h3 className="font-semibold text-[var(--text-primary)] mb-4 text-sm uppercase tracking-wider">
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Navigasi
             </h3>
             <ul className="space-y-2">
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors"
+                    className="text-sm text-[var(--text-muted)] hover:text-[#AD7BE9] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold text-[var(--text-primary)] mb-4 text-sm uppercase tracking-wider">
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Temukan Saya
             </h3>
             <ul className="space-y-2">
@@ -83,7 +83,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors"
+                    className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[#AD7BE9] transition-colors"
                   >
                     <Icon size={15} />
                     {label}
@@ -105,7 +105,7 @@ export default function Footer() {
               href="https://lynk.id/codeply"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--brand-primary)] hover:underline"
+              className="text-[#AD7BE9] hover:underline"
             >
               Codeply
             </a>

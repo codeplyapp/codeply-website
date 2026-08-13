@@ -23,18 +23,18 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Intro Header */}
         <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[var(--color-celadon-500)] to-[var(--color-muted-teal-500)] p-1 shrink-0 shadow-xl">
-            <div className="w-full h-full rounded-[22px] bg-[#141414] flex items-center justify-center">
-              <Code2 size={56} className="text-[var(--brand-primary)]" />
+          <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[#4D2DB7] to-[#AD7BE9] p-1 shrink-0 shadow-xl">
+            <div className="w-full h-full rounded-[22px] bg-[#12111c] flex items-center justify-center">
+              <Code2 size={56} className="text-[#AD7BE9]" />
             </div>
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800/40 text-xs font-semibold mb-3">
-              <Sparkles size={14} className="text-[var(--brand-primary)]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0E21A0]/40 text-[#AD7BE9] border border-[#4D2DB7]/40 text-xs font-semibold mb-3">
+              <Sparkles size={14} className="text-[#AD7BE9]" />
               <span>Vibe Coder & Creator</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
               Halo, Saya <span className="gradient-text">Codeply</span> 👋
             </h1>
             <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
@@ -44,9 +44,9 @@ export default function AboutPage() {
         </div>
 
         {/* Story / Mission */}
-        <div className="p-8 rounded-2xl bg-[#141414] border border-[var(--border-color)] space-y-4">
-          <h2 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-            <Terminal size={20} className="text-[var(--brand-primary)]" />
+        <div className="p-8 rounded-2xl bg-[#12111c] border border-[var(--border-color)] space-y-4">
+          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <Terminal size={20} className="text-[#AD7BE9]" />
             <span>Filosofi & Misi</span>
           </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
@@ -59,19 +59,19 @@ export default function AboutPage() {
 
         {/* Tech Skills */}
         <div>
-          <h2 className="text-xl font-bold text-[var(--text-primary)] mb-6">
+          <h2 className="text-xl font-bold text-white mb-6">
             Teknologi & Keahlian
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {skills.map((skill) => (
               <div
                 key={skill.name}
-                className="p-4 rounded-xl bg-[#141414] border border-[var(--border-color)] flex items-center justify-between"
+                className="p-4 rounded-xl bg-[#12111c] border border-[var(--border-color)] flex items-center justify-between"
               >
-                <span className="font-semibold text-sm text-[var(--text-primary)]">
+                <span className="font-semibold text-sm text-white">
                   {skill.name}
                 </span>
-                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-neutral-800 text-neutral-300 border border-neutral-700/50">
+                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-[#1a1829] text-[#dcd6f7] border border-[#AD7BE9]/20">
                   {skill.level}
                 </span>
               </div>
@@ -80,10 +80,10 @@ export default function AboutPage() {
         </div>
 
         {/* Social Links & Store */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-900 to-emerald-950 border border-emerald-800/40 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-[#0a0a0f] via-[#0E21A0]/40 to-[#4D2DB7]/50 border border-[#4D2DB7]/40 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
             <h3 className="font-bold text-lg mb-1">Mari Terhubung & Berdiskusi</h3>
-            <p className="text-xs sm:text-sm text-gray-300">
+            <p className="text-xs sm:text-sm text-[#dcd6f7]">
               Kunjungi sosial media atau profil toko saya di Lynk.id.
             </p>
           </div>
