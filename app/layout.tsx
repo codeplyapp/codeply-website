@@ -9,6 +9,10 @@ export const metadata: Metadata = {
     "Vibe coder yang menjual source code simple berkualitas untuk pemula. Template HTML, CSS, JavaScript, React, dan PHP siap pakai.",
   keywords: ["source code", "template html", "belajar coding", "pemula coding", "jual source code"],
   authors: [{ name: "Codeply" }],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Codeply — Source Code untuk Pemula",
     description: "Source code simple berkualitas untuk pemula. Beli, pelajari, dan kembangkan!",

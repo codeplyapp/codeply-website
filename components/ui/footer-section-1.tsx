@@ -1,22 +1,8 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import { Code2 } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 import { SocialCloud } from "@/components/ui/footer-section-1-utils/social-cloud";
 import { motion, Variants } from "framer-motion";
-
-const CodeplyLogo = () => {
-  return (
-    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-[#1b090e]">
-      <div className="w-10 h-10 rounded-xl bg-[#c13e63] flex items-center justify-center shadow-lg shadow-[#c13e63]/30">
-        <Code2 size={22} className="text-white" />
-      </div>
-      <span className="font-heading">
-        code<span className="text-[#c13e63]">ply</span>
-      </span>
-    </Link>
-  );
-};
 
 export default function Footer1() {
   const containerVariants = {
@@ -54,7 +40,7 @@ export default function Footer1() {
       >
         {/* Logo */}
         <motion.div variants={itemVariants} className="flex justify-center">
-          <CodeplyLogo />
+          <Logo size={42} />
         </motion.div>
 
         {/* Navigation Links */}

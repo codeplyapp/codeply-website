@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Code2, Terminal, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { Terminal, ExternalLink } from "lucide-react";
 import { GithubIcon, InstagramIcon } from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
@@ -24,8 +25,15 @@ export default function AboutPage() {
         {/* Intro Header */}
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[#c13e63] to-[#ab5491] p-1 shrink-0 shadow-xl">
-            <div className="w-full h-full rounded-[22px] bg-white flex items-center justify-center">
-              <Code2 size={56} className="text-[#c13e63]" />
+            <div className="w-full h-full rounded-[22px] bg-white flex items-center justify-center overflow-hidden p-2">
+              <Image
+                src="/logo.png"
+                alt="Codeply Logo"
+                width={100}
+                height={100}
+                className="object-contain w-full h-full"
+                priority
+              />
             </div>
           </div>
 
