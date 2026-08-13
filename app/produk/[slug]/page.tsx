@@ -38,7 +38,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         {/* Back Link */}
         <Link
           href="/produk"
-          className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#AD7BE9] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#9400FF] transition-colors mb-8"
         >
           <ArrowLeft size={16} />
           <span>Kembali ke Etalase</span>
@@ -48,7 +48,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           {/* Main Info (Left Column - 7 cols) */}
           <div className="lg:col-span-7 space-y-8">
             {/* Thumbnail / Image Preview */}
-            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-[#1a1829] border border-[var(--border-color)] flex items-center justify-center">
+            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-[#1f004a] border border-[var(--border-color)] flex items-center justify-center">
               {product.thumbnail ? (
                 <Image
                   src={product.thumbnail}
@@ -60,8 +60,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center text-[var(--text-muted)] p-8 text-center">
-                  <Code size={48} className="mb-3 text-[#AD7BE9] opacity-70" />
-                  <span className="text-sm font-semibold text-[#dcd6f7]">
+                  <Code size={48} className="mb-3 text-[#9400FF] opacity-70" />
+                  <span className="text-sm font-semibold text-[#e2ccff]">
                     Source Code Preview
                   </span>
                 </div>
@@ -71,7 +71,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Title & Category */}
             <div>
               {product.category && (
-                <span className="inline-block px-3 py-1 text-xs font-semibold rounded-md bg-[#0E21A0]/40 text-[#AD7BE9] border border-[#4D2DB7]/40 mb-3">
+                <span className="inline-block px-3 py-1 text-xs font-semibold rounded-md bg-[#512B81] text-white border border-[#9400FF]/40 mb-3">
                   {product.category}
                 </span>
               )}
@@ -95,7 +95,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs font-medium rounded-lg bg-[#1a1829] border border-[#AD7BE9]/20 text-[#dcd6f7]"
+                      className="px-3 py-1 text-xs font-medium rounded-lg bg-[#1f004a] border border-[#9400FF]/30 text-[#e2ccff]"
                     >
                       {tech}
                     </span>
@@ -105,26 +105,26 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             )}
 
             {/* Features Highlight */}
-            <div className="p-6 rounded-2xl bg-[#12111c] border border-[var(--border-color)]">
+            <div className="p-6 rounded-2xl bg-[#140033] border border-[var(--border-color)]">
               <h3 className="font-bold text-base text-white mb-4 flex items-center gap-2">
-                <CheckCircle size={18} className="text-[#AD7BE9]" />
+                <CheckCircle size={18} className="text-[#9400FF]" />
                 <span>Apa yang Kamu Dapatkan?</span>
               </h3>
               <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD7BE9] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9400FF] mt-2 shrink-0" />
                   <span>Source code lengkap dan terorganisir dengan struktur yang rapi</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD7BE9] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9400FF] mt-2 shrink-0" />
                   <span>Petunjuk instalasi & dokumentasi singkat penggunaan</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD7BE9] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9400FF] mt-2 shrink-0" />
                   <span>Bebas dimodifikasi untuk projek pribadi maupun komersial</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD7BE9] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9400FF] mt-2 shrink-0" />
                   <span>Akses pengunduhan file instan via Lynk.id setelah pembayaran</span>
                 </li>
               </ul>
@@ -133,13 +133,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
           {/* Sticky Checkout Box (Right Column - 5 cols) */}
           <div className="lg:col-span-5">
-            <div className="sticky top-28 p-6 rounded-2xl bg-[#12111c] border border-[var(--border-color)] space-y-6 shadow-2xl">
+            <div className="sticky top-28 p-6 rounded-2xl bg-[#140033] border border-[var(--border-color)] space-y-6 shadow-2xl">
               <div>
                 <span className="text-xs font-medium text-[var(--text-muted)] block mb-1">
                   Harga Sumber Kode
                 </span>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-3xl font-extrabold text-[#AD7BE9]">
+                  <span className="text-3xl font-extrabold text-[#d399ff]">
                     {formatRupiah(product.price)}
                   </span>
                   {product.originalPrice && product.originalPrice > product.price && (
@@ -156,7 +156,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   href={product.lynkIdUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#4D2DB7] hover:bg-[#5e3ce8] text-white font-bold text-base flex items-center justify-center gap-2 transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full py-3.5 px-6 rounded-xl bg-[#9400FF] hover:bg-[#a626ff] text-white font-bold text-base flex items-center justify-center gap-2 transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>Beli via Lynk.id</span>
                   <ExternalLink size={18} />
@@ -164,7 +164,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               ) : (
                 <button
                   disabled
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#1a1829] text-[#9f96c2] font-bold text-base cursor-not-allowed"
+                  className="w-full py-3.5 px-6 rounded-xl bg-[#1f004a] text-[#a685e2] font-bold text-base cursor-not-allowed"
                 >
                   Tautan Pembelian Belum Tersedia
                 </button>
@@ -173,11 +173,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               {/* Guarantees */}
               <div className="pt-4 border-t border-[var(--border-color)]/60 space-y-3">
                 <div className="flex items-center gap-3 text-xs text-[var(--text-secondary)]">
-                  <ShieldCheck size={16} className="text-[#AD7BE9] shrink-0" />
+                  <ShieldCheck size={16} className="text-[#9400FF] shrink-0" />
                   <span>Pembayaran Aman & Terverifikasi via Lynk.id</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-[var(--text-secondary)]">
-                  <CheckCircle size={16} className="text-[#AD7BE9] shrink-0" />
+                  <CheckCircle size={16} className="text-[#9400FF] shrink-0" />
                   <span>Pengiriman File Otomatis Langsung Setelah Pembayaran</span>
                 </div>
               </div>

@@ -30,7 +30,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--border-color)] bg-[#0a0a0f]">
+    <footer className="border-t border-[var(--border-color)] bg-[#0a001a]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -39,11 +39,11 @@ export default function Footer() {
               href="/"
               className="flex items-center gap-2 font-bold text-xl text-white"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#4D2DB7] flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-lg bg-[#9400FF] flex items-center justify-center shadow-md">
                 <Code2 size={18} className="text-white" />
               </div>
               <span>
-                code<span className="text-[#AD7BE9]">ply</span>
+                code<span className="text-[#9400FF]">ply</span>
               </span>
             </Link>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-xs">
@@ -62,7 +62,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--text-muted)] hover:text-[#AD7BE9] transition-colors"
+                    className="text-sm text-[var(--text-muted)] hover:text-[#9400FF] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[#AD7BE9] transition-colors"
+                    className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[#9400FF] transition-colors"
                   >
                     <Icon size={15} />
                     {label}
@@ -105,7 +105,7 @@ export default function Footer() {
               href="https://lynk.id/codeply"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#AD7BE9] hover:underline"
+              className="text-[#9400FF] hover:underline"
             >
               Codeply
             </a>

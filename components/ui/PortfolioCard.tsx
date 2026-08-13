@@ -13,10 +13,10 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
   const { title, description, techStack, category, thumbnail, liveUrl, githubUrl } = item;
 
   return (
-    <div className="rounded-2xl bg-[#12111c] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#AD7BE9] hover:shadow-[0_10px_30px_rgba(77,45,183,0.3)] flex flex-col justify-between">
+    <div className="rounded-2xl bg-[#140033] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#9400FF] hover:shadow-[0_10px_30px_rgba(148,0,255,0.35)] flex flex-col justify-between">
       <div>
         {/* Thumbnail */}
-        <div className="relative aspect-video w-full overflow-hidden bg-[#1a1829] flex items-center justify-center">
+        <div className="relative aspect-video w-full overflow-hidden bg-[#1f004a] flex items-center justify-center">
           {thumbnail ? (
             <Image
               src={thumbnail}
@@ -27,12 +27,12 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             />
           ) : (
             <div className="flex flex-col items-center justify-center text-[var(--text-muted)] p-6">
-              <Folder size={40} className="mb-2 text-[#AD7BE9] opacity-70" />
-              <span className="text-xs font-medium text-[#9f96c2]">Portfolio Project</span>
+              <Folder size={40} className="mb-2 text-[#9400FF] opacity-70" />
+              <span className="text-xs font-medium text-[#a685e2]">Portfolio Project</span>
             </div>
           )}
           {category && (
-            <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full bg-[#4D2DB7] text-white backdrop-blur-md shadow-md border border-[#AD7BE9]/30">
+            <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full bg-[#512B81] text-white backdrop-blur-md shadow-md border border-[#9400FF]/40">
               {category}
             </span>
           )}
@@ -44,7 +44,7 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-0.5 text-xs font-medium rounded-md bg-[#1a1829] text-[#dcd6f7] border border-[#AD7BE9]/20"
+                className="px-2.5 py-0.5 text-xs font-medium rounded-md bg-[#27005D]/60 text-[#e2ccff] border border-[#9400FF]/30"
               >
                 {tech}
               </span>
@@ -63,7 +63,7 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 px-4 py-2.5 rounded-xl bg-[#4D2DB7] hover:bg-[#5e3ce8] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-md"
+            className="flex-1 px-4 py-2.5 rounded-xl bg-[#9400FF] hover:bg-[#a626ff] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-lg"
           >
             <span>Live Demo</span>
             <ExternalLink size={14} />
@@ -74,7 +74,7 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl border border-[var(--border-color)] hover:bg-[#1a1829] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+            className="px-4 py-2.5 rounded-xl border border-[var(--border-color)] hover:bg-[#27005D] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
           >
             <GithubIcon size={15} />
             <span>Repository</span>

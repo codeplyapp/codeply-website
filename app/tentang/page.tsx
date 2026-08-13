@@ -23,15 +23,15 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Intro Header */}
         <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[#4D2DB7] to-[#AD7BE9] p-1 shrink-0 shadow-xl">
-            <div className="w-full h-full rounded-[22px] bg-[#12111c] flex items-center justify-center">
-              <Code2 size={56} className="text-[#AD7BE9]" />
+          <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-[#9400FF] to-[#512B81] p-1 shrink-0 shadow-xl">
+            <div className="w-full h-full rounded-[22px] bg-[#140033] flex items-center justify-center">
+              <Code2 size={56} className="text-[#9400FF]" />
             </div>
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0E21A0]/40 text-[#AD7BE9] border border-[#4D2DB7]/40 text-xs font-semibold mb-3">
-              <Sparkles size={14} className="text-[#AD7BE9]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#512B81] text-white border border-[#9400FF]/40 text-xs font-semibold mb-3">
+              <Sparkles size={14} className="text-[#9400FF]" />
               <span>Vibe Coder & Creator</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
@@ -44,9 +44,9 @@ export default function AboutPage() {
         </div>
 
         {/* Story / Mission */}
-        <div className="p-8 rounded-2xl bg-[#12111c] border border-[var(--border-color)] space-y-4">
+        <div className="p-8 rounded-2xl bg-[#140033] border border-[var(--border-color)] space-y-4">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Terminal size={20} className="text-[#AD7BE9]" />
+            <Terminal size={20} className="text-[#9400FF]" />
             <span>Filosofi & Misi</span>
           </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
@@ -66,12 +66,12 @@ export default function AboutPage() {
             {skills.map((skill) => (
               <div
                 key={skill.name}
-                className="p-4 rounded-xl bg-[#12111c] border border-[var(--border-color)] flex items-center justify-between"
+                className="p-4 rounded-xl bg-[#140033] border border-[var(--border-color)] flex items-center justify-between"
               >
                 <span className="font-semibold text-sm text-white">
                   {skill.name}
                 </span>
-                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-[#1a1829] text-[#dcd6f7] border border-[#AD7BE9]/20">
+                <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-[#27005D]/70 text-[#e2ccff] border border-[#9400FF]/30">
                   {skill.level}
                 </span>
               </div>
@@ -80,10 +80,10 @@ export default function AboutPage() {
         </div>
 
         {/* Social Links & Store */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-[#0a0a0f] via-[#0E21A0]/40 to-[#4D2DB7]/50 border border-[#4D2DB7]/40 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="p-8 rounded-2xl bg-gradient-to-r from-[#0a001a] via-[#27005D]/70 to-[#512B81]/70 border border-[#9400FF]/40 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
             <h3 className="font-bold text-lg mb-1">Mari Terhubung & Berdiskusi</h3>
-            <p className="text-xs sm:text-sm text-[#dcd6f7]">
+            <p className="text-xs sm:text-sm text-[#e2ccff]">
               Kunjungi sosial media atau profil toko saya di Lynk.id.
             </p>
           </div>

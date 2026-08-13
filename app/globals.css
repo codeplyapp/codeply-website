@@ -1,26 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
-/* ── Custom Color Tokens (New Palette: #0E21A0, #4D2DB7, #AD7BE9) ── */
+/* ── Custom Color Tokens (New Palette: #27005D, #9400FF, #512B81) ── */
 :root {
   /* Custom Palette Hexes */
-  --color-royal-navy: #0E21A0;
-  --color-vibrant-purple: #4D2DB7;
-  --color-lavender-violet: #AD7BE9;
+  --color-cyber-violet: #27005D;
+  --color-neon-purple: #9400FF;
+  --color-royal-plum: #512B81;
 
-  /* Dark Theme Tokens aligned with Royal Navy & Electric Violet */
-  --bg-primary: #0a0a0f;
-  --bg-surface: #12111c;
-  --bg-muted: #1a1829;
+  /* Theme Tokens */
+  --bg-primary: #0a001a;
+  --bg-surface: #140033;
+  --bg-muted: #1f004a;
   --text-primary: #ffffff;
-  --text-secondary: #dcd6f7;
-  --text-muted: #9f96c2;
-  --border-color: rgba(173, 123, 233, 0.2);
-  --brand-primary: #4D2DB7;
-  --brand-primary-hover: #5e3ce8;
-  --brand-accent: #AD7BE9;
-  --brand-accent-hover: #c499f5;
-  --brand-navy: #0E21A0;
+  --text-secondary: #e2ccff;
+  --text-muted: #a685e2;
+  --border-color: rgba(148, 0, 255, 0.25);
+
+  --brand-primary: #9400FF;
+  --brand-primary-hover: #a626ff;
+  --brand-accent: #512B81;
+  --brand-accent-hover: #64379e;
+  --brand-dark-violet: #27005D;
 }
 
 @theme inline {
@@ -31,9 +32,9 @@
   --font-mono: "JetBrains Mono", monospace;
 
   /* Expose custom palette colors to Tailwind */
-  --color-royal-navy: #0E21A0;
-  --color-vibrant-purple: #4D2DB7;
-  --color-lavender-violet: #AD7BE9;
+  --color-cyber-violet: #27005D;
+  --color-neon-purple: #9400FF;
+  --color-royal-plum: #512B81;
 }
 
 /* Base */
@@ -61,9 +62,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-weight: 700;
 }
 
-/* Gradient text utility using Royal Navy, Vibrant Purple & Lavender */
+/* Gradient text utility using Electric Neon Purple, Cyber Violet & Royal Plum */
 .gradient-text {
-  background: linear-gradient(135deg, #AD7BE9 0%, #4D2DB7 50%, #6848d7 100%);
+  background: linear-gradient(135deg, #d399ff 0%, #9400FF 50%, #512B81 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,7 +72,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Glassmorphism card */
 .glass-card {
-  background: rgba(18, 17, 28, 0.8);
+  background: rgba(20, 0, 51, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
@@ -85,6 +86,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(173, 123, 233, 0.3);
+  background: rgba(148, 0, 255, 0.35);
   border-radius: 3px;
 }
