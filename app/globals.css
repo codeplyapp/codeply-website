@@ -65,7 +65,46 @@
   --font-heading: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Ink Black */
+  /* Ink Black Full Scale */
+  --color-ink-black-50: #edf5f7;
+  --color-ink-black-100: #dbecf0;
+  --color-ink-black-200: #b8d9e0;
+  --color-ink-black-300: #94c6d1;
+  --color-ink-black-400: #70b3c2;
+  --color-ink-black-500: #4da0b3;
+  --color-ink-black-600: #3d808f;
+  --color-ink-black-700: #2e606b;
+  --color-ink-black-800: #1f4047;
+  --color-ink-black-900: #0f2024;
+  --color-ink-black-950: #0b1619;
+
+  /* Steel Blue Full Scale */
+  --color-steel-blue-50: #eff3f5;
+  --color-steel-blue-100: #dfe7ec;
+  --color-steel-blue-200: #c0cfd8;
+  --color-steel-blue-300: #a0b7c5;
+  --color-steel-blue-400: #81a0b1;
+  --color-steel-blue-500: #61889e;
+  --color-steel-blue-600: #4e6d7e;
+  --color-steel-blue-700: #3a515f;
+  --color-steel-blue-800: #27363f;
+  --color-steel-blue-900: #131b20;
+  --color-steel-blue-950: #0e1316;
+
+  /* Tea Green Full Scale */
+  --color-tea-green-50: #eff5f0;
+  --color-tea-green-100: #dfece0;
+  --color-tea-green-200: #bfd9c1;
+  --color-tea-green-300: #9fc6a3;
+  --color-tea-green-400: #80b384;
+  --color-tea-green-500: #609f65;
+  --color-tea-green-600: #4d8051;
+  --color-tea-green-700: #39603d;
+  --color-tea-green-800: #264028;
+  --color-tea-green-900: #132014;
+  --color-tea-green-950: #0d160e;
+
+  /* Short Aliases */
   --color-ink-50: #edf5f7;
   --color-ink-100: #dbecf0;
   --color-ink-200: #b8d9e0;
@@ -78,7 +117,6 @@
   --color-ink-900: #0f2024;
   --color-ink-950: #0b1619;
 
-  /* Steel Blue */
   --color-steel-50: #eff3f5;
   --color-steel-100: #dfe7ec;
   --color-steel-200: #c0cfd8;
@@ -91,7 +129,6 @@
   --color-steel-900: #131b20;
   --color-steel-950: #0e1316;
 
-  /* Tea Green */
   --color-tea-50: #eff5f0;
   --color-tea-100: #dfece0;
   --color-tea-200: #bfd9c1;
