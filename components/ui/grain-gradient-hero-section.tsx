@@ -1,9 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { GrainGradient, grainGradientPresets } from '@paper-design/shaders-react';
+import dynamic from "next/dynamic";
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from "lucide-react";
+
+// Dynamically import GrainGradient with SSR disabled to prevent Vercel WebGL build errors
+const GrainGradientClient = dynamic(
+  () => import('@paper-design/shaders-react').then((mod) => mod.GrainGradient),
+  { ssr: false }
+);
 
 interface GrainHeroSectionProps {
   title: string;
@@ -32,8 +38,10 @@ export default function GrainHeroSection({
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-24 bg-[#0a0a0f]">
-      <GrainGradient
-        {...grainGradientPresets[0]}
+      <GrainGradientClient
+        colorBack="#0a0a0f"
+        colors={['#9a324f', '#4d8051', '#3d808f', '#c13e63']}
+        speed={0.05}
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0, opacity: 0.9 }}
       />
       
