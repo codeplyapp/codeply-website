@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
+import DockNav from "@/components/layout/DockNav";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -24,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className="antialiased">
-        <Navbar />
+      <body className="antialiased pb-20">
         <main className="min-h-screen">{children}</main>
+        <DockNav />
         <Footer />
       </body>
     </html>
