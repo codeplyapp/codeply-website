@@ -24,8 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className="antialiased pb-20">
-        <main className="min-h-screen">{children}</main>
+      <body className="antialiased bg-[#0a0a0a] text-white">
+        <main className="min-h-screen pb-24">{children}</main>
         <DockNav />
         <Footer />
       </body>

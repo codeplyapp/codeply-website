@@ -31,13 +31,13 @@ export default function GrainHeroSection({
   };
 
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-24">
+    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-24 bg-[#0a0a0a]">
       <GrainGradient
         {...grainGradientPresets[0]}
-        style={{ position: "fixed", inset: 0, zIndex: -10 }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0 }}
       />
       
-      <div className="text-center px-6 sm:px-8 max-w-4xl mx-auto z-10">
+      <div className="text-center px-6 sm:px-8 max-w-4xl mx-auto z-10 relative">
         <h1 
           role="heading" 
           className="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight"
