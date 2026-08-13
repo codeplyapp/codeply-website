@@ -24,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   } = product;
 
   return (
-    <div className="group rounded-2xl bg-[#12111c] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#AD7BE9] hover:shadow-[0_10px_30px_rgba(77,45,183,0.3)] flex flex-col justify-between">
+    <div className="group rounded-2xl bg-[#12111c] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#AD7BE9] hover:shadow-[0_10px_30px_rgba(77,45,183,0.3)] flex flex-col justify-between h-full">
       <div>
         {/* Thumbnail Container */}
         <div className="relative aspect-video w-full overflow-hidden bg-[#1a1829] flex items-center justify-center">
@@ -79,25 +79,25 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Footer / Price & Action */}
-      <div className="p-5 pt-0 border-t border-[var(--border-color)]/60 mt-auto flex items-center justify-between gap-3 pt-4">
-        <div>
-          <span className="text-xs text-[var(--text-muted)] block">Harga</span>
-          <div className="flex items-baseline gap-2">
-            <span className="font-bold text-lg text-[#AD7BE9]">
+      <div className="p-5 pt-4 border-t border-[var(--border-color)]/60 mt-auto flex items-center justify-between gap-2 overflow-hidden">
+        <div className="min-w-0 flex-1 pr-1">
+          <span className="text-[11px] text-[var(--text-muted)] block mb-0.5">Harga</span>
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <span className="font-bold text-base sm:text-lg text-[#AD7BE9] whitespace-nowrap">
               {formatRupiah(price)}
             </span>
             {originalPrice && originalPrice > price && (
-              <span className="text-xs text-[var(--text-muted)] line-through">
+              <span className="text-[11px] text-[var(--text-muted)] line-through whitespace-nowrap">
                 {formatRupiah(originalPrice)}
               </span>
             )}
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 shrink-0">
           <Link
             href={`/produk/${slug || product.id}`}
-            className="p-2.5 rounded-xl border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:bg-[#1a1829] transition-colors"
+            className="p-2.5 rounded-xl border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:bg-[#1a1829] transition-colors flex items-center justify-center shrink-0"
             title="Detail Produk"
           >
             <ArrowRight size={16} />
@@ -107,10 +107,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               href={lynkIdUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2.5 rounded-xl bg-[#4D2DB7] hover:bg-[#5e3ce8] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md hover:scale-105"
+              className="px-3.5 py-2.5 rounded-xl bg-[#4D2DB7] hover:bg-[#5e3ce8] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md hover:scale-105 shrink-0 whitespace-nowrap"
             >
               <span>Beli</span>
-              <ExternalLink size={14} />
+              <ExternalLink size={13} />
             </a>
           )}
         </div>
