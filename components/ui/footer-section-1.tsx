@@ -1,27 +1,20 @@
 "use client";
 import React from "react";
+import Link from "next/link";
+import { Code2 } from "lucide-react";
 import { SocialCloud } from "@/components/ui/footer-section-1-utils/social-cloud";
 import { motion, Variants } from "framer-motion";
 
-const SolaceUILogo = ({ className }: { className?: string }) => {
+const CodeplyLogo = () => {
   return (
-    <svg
-      className={className}
-      width="64"
-      height="38"
-      viewBox="0 0 64 38"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M0 20.1032L39.8387 20.1032C44.7808 20.1032 48.7871 24.1095 48.7871 29.0516C48.7871 33.9937 44.7808 38 39.8387 38L1.56459e-06 38L0 20.1032Z"
-        fill="currentColor"
-      />
-      <path
-        d="M63.4968 17.8968L23.6581 17.8968C18.716 17.8968 14.7097 13.8904 14.7097 8.94839C14.7097 4.00633 18.716 0 23.6581 0L63.4968 0V17.8968Z"
-        fill="currentColor"
-      />
-    </svg>
+    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-white">
+      <div className="w-10 h-10 rounded-xl bg-[#9400FF] flex items-center justify-center shadow-lg shadow-[#9400FF]/40">
+        <Code2 size={22} className="text-white" />
+      </div>
+      <span className="font-heading">
+        code<span className="text-[#9400FF]">ply</span>
+      </span>
+    </Link>
   );
 };
 
@@ -61,7 +54,7 @@ export default function Footer1() {
       >
         {/* Logo */}
         <motion.div variants={itemVariants} className="flex justify-center">
-          <SolaceUILogo className="h-10 w-auto text-[#9400FF]" />
+          <CodeplyLogo />
         </motion.div>
 
         {/* Navigation Links */}
