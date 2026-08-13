@@ -1,27 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
-/* ── Custom Color Tokens (New Palette: #27005D, #9400FF, #512B81) ── */
+/* ── Custom Color Tokens (Ink Black, Steel Blue, Tea Green Palette) ── */
 :root {
-  /* Custom Palette Hexes */
-  --color-cyber-violet: #27005D;
-  --color-neon-purple: #9400FF;
-  --color-royal-plum: #512B81;
+  /* Ink Black Scale */
+  --color-ink-black-50: #edf5f7;
+  --color-ink-black-100: #dbecf0;
+  --color-ink-black-200: #b8d9e0;
+  --color-ink-black-300: #94c6d1;
+  --color-ink-black-400: #70b3c2;
+  --color-ink-black-500: #4da0b3;
+  --color-ink-black-600: #3d808f;
+  --color-ink-black-700: #2e606b;
+  --color-ink-black-800: #1f4047;
+  --color-ink-black-900: #0f2024;
+  --color-ink-black-950: #0b1619;
+
+  /* Steel Blue Scale */
+  --color-steel-blue-50: #eff3f5;
+  --color-steel-blue-100: #dfe7ec;
+  --color-steel-blue-200: #c0cfd8;
+  --color-steel-blue-300: #a0b7c5;
+  --color-steel-blue-400: #81a0b1;
+  --color-steel-blue-500: #61889e;
+  --color-steel-blue-600: #4e6d7e;
+  --color-steel-blue-700: #3a515f;
+  --color-steel-blue-800: #27363f;
+  --color-steel-blue-900: #131b20;
+  --color-steel-blue-950: #0e1316;
+
+  /* Tea Green Scale */
+  --color-tea-green-50: #eff5f0;
+  --color-tea-green-100: #dfece0;
+  --color-tea-green-200: #bfd9c1;
+  --color-tea-green-300: #9fc6a3;
+  --color-tea-green-400: #80b384;
+  --color-tea-green-500: #609f65;
+  --color-tea-green-600: #4d8051;
+  --color-tea-green-700: #39603d;
+  --color-tea-green-800: #264028;
+  --color-tea-green-900: #132014;
+  --color-tea-green-950: #0d160e;
 
   /* Theme Tokens */
-  --bg-primary: #0a001a;
-  --bg-surface: #140033;
-  --bg-muted: #1f004a;
-  --text-primary: #ffffff;
-  --text-secondary: #e2ccff;
-  --text-muted: #a685e2;
-  --border-color: rgba(148, 0, 255, 0.25);
+  --bg-primary: #0b1619;
+  --bg-surface: #0f2024;
+  --bg-muted: #1f4047;
+  --text-primary: #edf5f7;
+  --text-secondary: #b8d9e0;
+  --text-muted: #70b3c2;
+  --border-color: rgba(112, 179, 194, 0.22);
 
-  --brand-primary: #9400FF;
-  --brand-primary-hover: #a626ff;
-  --brand-accent: #512B81;
-  --brand-accent-hover: #64379e;
-  --brand-dark-violet: #27005D;
+  --brand-primary: #4da0b3;
+  --brand-primary-hover: #70b3c2;
+  --brand-accent: #609f65;
+  --brand-accent-hover: #80b384;
+  --brand-steel: #61889e;
 }
 
 @theme inline {
@@ -31,10 +65,44 @@
   --font-heading: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Expose custom palette colors to Tailwind */
-  --color-cyber-violet: #27005D;
-  --color-neon-purple: #9400FF;
-  --color-royal-plum: #512B81;
+  /* Ink Black */
+  --color-ink-50: #edf5f7;
+  --color-ink-100: #dbecf0;
+  --color-ink-200: #b8d9e0;
+  --color-ink-300: #94c6d1;
+  --color-ink-400: #70b3c2;
+  --color-ink-500: #4da0b3;
+  --color-ink-600: #3d808f;
+  --color-ink-700: #2e606b;
+  --color-ink-800: #1f4047;
+  --color-ink-900: #0f2024;
+  --color-ink-950: #0b1619;
+
+  /* Steel Blue */
+  --color-steel-50: #eff3f5;
+  --color-steel-100: #dfe7ec;
+  --color-steel-200: #c0cfd8;
+  --color-steel-300: #a0b7c5;
+  --color-steel-400: #81a0b1;
+  --color-steel-500: #61889e;
+  --color-steel-600: #4e6d7e;
+  --color-steel-700: #3a515f;
+  --color-steel-800: #27363f;
+  --color-steel-900: #131b20;
+  --color-steel-950: #0e1316;
+
+  /* Tea Green */
+  --color-tea-50: #eff5f0;
+  --color-tea-100: #dfece0;
+  --color-tea-200: #bfd9c1;
+  --color-tea-300: #9fc6a3;
+  --color-tea-400: #80b384;
+  --color-tea-500: #609f65;
+  --color-tea-600: #4d8051;
+  --color-tea-700: #39603d;
+  --color-tea-800: #264028;
+  --color-tea-900: #132014;
+  --color-tea-950: #0d160e;
 }
 
 /* Base */
@@ -62,9 +130,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-weight: 700;
 }
 
-/* Gradient text utility using Electric Neon Purple, Cyber Violet & Royal Plum */
+/* Gradient text utility using Tea Green, Ink Cyan & Steel Blue */
 .gradient-text {
-  background: linear-gradient(135deg, #d399ff 0%, #9400FF 50%, #512B81 100%);
+  background: linear-gradient(135deg, #80b384 0%, #4da0b3 50%, #81a0b1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -72,7 +140,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Glassmorphism card */
 .glass-card {
-  background: rgba(20, 0, 51, 0.85);
+  background: rgba(15, 32, 36, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
@@ -86,6 +154,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 0, 255, 0.35);
+  background: rgba(77, 160, 179, 0.35);
   border-radius: 3px;
 }

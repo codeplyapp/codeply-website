@@ -7,12 +7,12 @@ import { motion, Variants } from "framer-motion";
 
 const CodeplyLogo = () => {
   return (
-    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-white">
-      <div className="w-10 h-10 rounded-xl bg-[#9400FF] flex items-center justify-center shadow-lg shadow-[#9400FF]/40">
-        <Code2 size={22} className="text-white" />
+    <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-[#edf5f7]">
+      <div className="w-10 h-10 rounded-xl bg-[#4da0b3] flex items-center justify-center shadow-lg shadow-[#4da0b3]/40">
+        <Code2 size={22} className="text-[#0b1619]" />
       </div>
       <span className="font-heading">
-        code<span className="text-[#9400FF]">ply</span>
+        code<span className="text-[#4da0b3]">ply</span>
       </span>
     </Link>
   );
@@ -44,7 +44,7 @@ export default function Footer1() {
   };
 
   return (
-    <footer className="w-full py-12 bg-[#0a001a] text-white overflow-hidden border-t border-[var(--border-color)]">
+    <footer className="w-full py-12 bg-[#0b1619] text-[#edf5f7] overflow-hidden border-t border-[var(--border-color)]">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -76,11 +76,11 @@ export default function Footer1() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 group-hover:text-[#d399ff] transition-colors duration-300">
+              <span className="relative z-10 group-hover:text-[#4da0b3] transition-colors duration-300">
                 {item.label}
               </span>
               <motion.span
-                className="absolute inset-0 bg-[#27005D]/80 rounded-md -z-0 origin-center border border-[#9400FF]/30"
+                className="absolute inset-0 bg-[#0f2024]/90 rounded-md -z-0 origin-center border border-[#4da0b3]/30"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}

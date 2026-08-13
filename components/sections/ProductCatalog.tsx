@@ -54,7 +54,7 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
             placeholder="Cari source code, fitur, atau teknologi..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#140033] border border-[var(--border-color)] text-sm text-white focus:outline-none focus:border-[#9400FF] transition-colors placeholder:text-[var(--text-muted)] shadow-inner"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0f2024] border border-[var(--border-color)] text-sm text-[#edf5f7] focus:outline-none focus:border-[#4da0b3] transition-colors placeholder:text-[var(--text-muted)] shadow-inner"
           />
         </div>
 
@@ -68,8 +68,8 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   selectedCategory === cat
-                    ? "bg-[#9400FF] text-white border border-[#9400FF] shadow-lg"
-                    : "bg-[#140033] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:border-[#9400FF]/50"
+                    ? "bg-[#4da0b3] text-[#0b1619] border border-[#70b3c2] shadow-lg font-bold"
+                    : "bg-[#0f2024] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:border-[#4da0b3]/50"
                 }`}
               >
                 {cat}
@@ -89,9 +89,9 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
           ))}
         </div>
       ) : (
-        <div className="py-20 text-center rounded-2xl bg-[#140033] border border-[var(--border-color)] p-8">
-          <Package size={48} className="mx-auto mb-4 text-[#9400FF] opacity-60" />
-          <h3 className="text-lg font-bold text-white mb-2">
+        <div className="py-20 text-center rounded-2xl bg-[#0f2024] border border-[var(--border-color)] p-8">
+          <Package size={48} className="mx-auto mb-4 text-[#4da0b3] opacity-60" />
+          <h3 className="text-lg font-bold text-[#edf5f7] mb-2">
             {products.length === 0 ? "Belum Ada Produk di Database" : "Produk Tidak Ditemukan"}
           </h3>
           <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto">

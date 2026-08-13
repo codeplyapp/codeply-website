@@ -24,10 +24,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   } = product;
 
   return (
-    <div className="group rounded-2xl bg-[#140033] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#9400FF] hover:shadow-[0_10px_30px_rgba(148,0,255,0.35)] flex flex-col justify-between h-full">
+    <div className="group rounded-2xl bg-[#0f2024] border border-[var(--border-color)] overflow-hidden transition-all duration-300 hover:border-[#4da0b3] hover:shadow-[0_10px_30px_rgba(77,160,179,0.3)] flex flex-col justify-between h-full">
       <div>
         {/* Thumbnail Container */}
-        <div className="relative aspect-video w-full overflow-hidden bg-[#1f004a] flex items-center justify-center">
+        <div className="relative aspect-video w-full overflow-hidden bg-[#1f4047] flex items-center justify-center">
           {thumbnail ? (
             <Image
               src={thumbnail}
@@ -39,12 +39,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             />
           ) : (
             <div className="flex flex-col items-center justify-center text-[var(--text-muted)] p-6 text-center">
-              <Code size={40} className="mb-2 text-[#9400FF] opacity-70" />
-              <span className="text-xs font-medium text-[#a685e2]">Source Code Preview</span>
+              <Code size={40} className="mb-2 text-[#4da0b3] opacity-70" />
+              <span className="text-xs font-medium text-[#70b3c2]">Source Code Preview</span>
             </div>
           )}
           {category && (
-            <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full bg-[#512B81] text-white backdrop-blur-md shadow-md border border-[#9400FF]/40">
+            <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full bg-[#39603d] text-[#edf5f7] backdrop-blur-md shadow-md border border-[#80b384]/40">
               {category}
             </span>
           )}
@@ -58,7 +58,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-0.5 text-[11px] font-medium rounded-md bg-[#27005D]/60 text-[#e2ccff] border border-[#9400FF]/30"
+                  className="px-2.5 py-0.5 text-[11px] font-medium rounded-md bg-[#1f4047]/60 text-[#b8d9e0] border border-[#70b3c2]/30"
                 >
                   {tech}
                 </span>
@@ -67,7 +67,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           )}
 
           {/* Title */}
-          <h3 className="font-bold text-lg text-white group-hover:text-[#d399ff] transition-colors line-clamp-1 mb-2">
+          <h3 className="font-bold text-lg text-[#edf5f7] group-hover:text-[#4da0b3] transition-colors line-clamp-1 mb-2">
             <Link href={`/produk/${slug || product.id}`}>{title}</Link>
           </h3>
 
@@ -83,7 +83,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="min-w-0 flex-1 pr-1">
           <span className="text-[11px] text-[var(--text-muted)] block mb-0.5">Harga</span>
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-            <span className="font-bold text-base sm:text-lg text-[#d399ff] whitespace-nowrap">
+            <span className="font-bold text-base sm:text-lg text-[#70b3c2] whitespace-nowrap">
               {formatRupiah(price)}
             </span>
             {originalPrice && originalPrice > price && (
@@ -97,7 +97,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex items-center gap-1.5 shrink-0">
           <Link
             href={`/produk/${slug || product.id}`}
-            className="p-2.5 rounded-xl border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:bg-[#27005D] transition-colors flex items-center justify-center shrink-0"
+            className="p-2.5 rounded-xl border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:bg-[#1f4047] transition-colors flex items-center justify-center shrink-0"
             title="Detail Produk"
           >
             <ArrowRight size={16} />
@@ -107,7 +107,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               href={lynkIdUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2.5 rounded-xl bg-[#9400FF] hover:bg-[#a626ff] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-lg hover:scale-105 shrink-0 whitespace-nowrap"
+              className="px-3.5 py-2.5 rounded-xl bg-[#4da0b3] hover:bg-[#70b3c2] text-[#0b1619] text-xs font-bold flex items-center gap-1.5 transition-all shadow-lg hover:scale-105 shrink-0 whitespace-nowrap"
             >
               <span>Beli</span>
               <ExternalLink size={13} />

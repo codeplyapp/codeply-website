@@ -25,7 +25,7 @@ export function SocialCloud({ className }: { className?: string }) {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.15, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="p-3 rounded-xl bg-[#1f004a] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-white hover:border-[#9400FF] transition-all shadow-md"
+            className="p-3 rounded-xl bg-[#0f2024] border border-[var(--border-color)] text-[#b8d9e0] hover:text-white hover:border-[#4da0b3] transition-all shadow-md"
             title={social.name}
           >
             <Icon size={18} />
